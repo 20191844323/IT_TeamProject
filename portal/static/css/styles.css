@@ -1,0 +1,114 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.search-bar {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.login-register {
+    font-size: 16px;
+}
+
+.menu-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.recipes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.recipe {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.recipe-details {
+    margin-top: 10px;
+}
+
+
+
+
+/* 新增的 CSS 样式 */
+
+.content {
+    display: flex; /* 使用 Flexbox 布局 */
+    align-items: center; /* 垂直居中对齐 */
+}
+
+.image-and-filters {
+    display: flex; /* 使用 Flexbox 布局 */
+    align-items: center; /* 垂直居中对齐 */
+    width: 100%; /* 占满父容器的宽度 */
+}
+
+.filters {
+    flex: 1; /* 筛选框区域占据剩余空间 */
+    padding: 20px; /* 添加一些内边距 */
+}
+
+.image-slider {
+    flex: 2; /* 图片滚动区域占据更多的空间 */
+    text-align: center; /* 图片居中对齐 */
+    padding: 20px; /* 添加一些内边距 */
+}
+
+.image-slider button {
+    margin: 0 10px; /* 左右边距 */
+}
+
+.image-slider .images img{
+    max-width:100%
+}
+
+
+.carousel-inner img {
+    max-height: 350px; /* 可以根据需要调整轮播图的最大高度 */
+}
+

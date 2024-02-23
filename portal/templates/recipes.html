@@ -1,0 +1,26 @@
+<!-- 3. 动态urls+html模版实现recipes界面-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe.title }}</title>
+    <!-- 这里可以添加其他样式和脚本 -->
+</head>
+<body>
+    <h1>{{ recipe.title }}</h1>
+    <p>Author：{{ recipe.user_id.username }}</p>
+    <p>Category：{{ recipe.category }}</p>
+    <p>ave_rating：{{ recipe.avg_rating }}</p>
+    <p>content：{{ recipe.content }}</p>
+    <img src="{{ recipe.r_imagefield }}" alt="{{ recipe.title }}">
+    <p>comment：</p>
+    <ul>
+        {% for comment in recipe.commentt %}
+            <li>{{ comment }}</li>
+        {% endfor %}
+    </ul>
+    <!-- 这里可以添加其他菜谱相关内容，如评论、点赞等 -->
+</body>
+</html>
