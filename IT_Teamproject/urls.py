@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from portal.views import LoginView,IndexView
+from portal.views import LoginView, IndexView, RegisterView, RecipeView, SendVerificationCode
 
 urlpatterns = [
 
@@ -24,8 +24,12 @@ urlpatterns = [
 
     path('index/', IndexView),  # def视图写法
 
-    path('login/', LoginView.as_view(), name='login'), # 统一写类视图
+    path('login/', LoginView.as_view(), name='login'),  # 统一写类视图
+
+    path('register/', RegisterView.as_view(), name='register'),
+
+    path('validate_verification_code/', SendVerificationCode, name='validate-verification-code'),
 
     # 动态urls写recipes     path('recipes/<int:id>', RecipesView.as_view(),name='recipes')
-
+    path('recipes/<int:recipe_id>/', RecipeView.as_view(), name='recipe_detail'),
 ]

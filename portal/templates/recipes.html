@@ -1,26 +1,170 @@
 <!-- 3. 动态urls+html模版实现recipes界面-->
+{% load static %}
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ recipe.title }}</title>
+
     <!-- 这里可以添加其他样式和脚本 -->
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static '/css/login.css' %}">
+    <style>
+        .recipe-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .recipe-image-container {
+            text-align: left;
+            padding-left: 100px;
+
+        }
+
+        .recipe-image-container img {
+            width: 350px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .recipe-info-container {
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: 40px;
+
+        }
+
+        .recipe-info-container p {
+            margin-top: 10px;
+        }
+
+        h4 {
+            margin-top: 20px;
+            font-weight: bold
+        }
+    </style>
 </head>
 <body>
-    <h1>{{ recipe.title }}</h1>
-    <p>Author：{{ recipe.user_id.username }}</p>
-    <p>Category：{{ recipe.category }}</p>
-    <p>ave_rating：{{ recipe.avg_rating }}</p>
-    <p>content：{{ recipe.content }}</p>
-    <img src="{{ recipe.r_imagefield }}" alt="{{ recipe.title }}">
-    <p>comment：</p>
-    <ul>
-        {% for comment in recipe.commentt %}
-            <li>{{ comment }}</li>
+<div class="container">
+    <!--页头 header&menu-bar 之后替换-->
+    <div class="header">
+        <div class="logo">网站 Logo</div>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索...">
+            <button type="submit">Search</button>
+        </div>
+        <div class="login-register">
+            <a href="/login/">登录/注册</a>
+        </div>
+    </div>
+    <div class="menu-bar">
+        <div class="menu-item">首页</div>
+        <div class="menu-item">菜谱</div>
+        <div class="menu-item">Contact us</div>
+    </div>
+
+<!--之后有具体的菜谱内容以后会再美化-->
+    <div class="recipe-container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="recipe-image-container">
+                    <div>
+                        <img src="{{ recipe.r_imagefield }}" alt="{{ recipe.title }}">
+                        <!-- 测试图片 -->
+                        <img src="https://i3.meishichina.com/attachment/magic/2024/01/27/2024012717063469037501.jpg">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="recipe-info-container">
+                    <h1>{{ recipe.title }}</h1>
+                    <p>Author: {{ recipe.user_id.nickname }}</p>
+                    <p>Category: {{ recipe.category }}</p>
+                    <p>Average Rating: {{ recipe.avg_rating }}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="recipe-details">
+            <div style="margin-left: 10px">
+                <h4>Content</h4>
+                <p>{{ recipe.content }}</p>
+            </div>
+            <div style="margin-left: 10px">
+                <h4>Make A Comment</h4>
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="2"></textarea>
+                    </div>
+                    <div style="text-align: center">
+                        <button type="submit" class="btn btn-danger btn-round  mb-1"
+                                style="font-size: small">Submit
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="bs-example" data-example-id="simple-table">
+                <table class="table">
+                    <thead>
+                    <tr class="h4">
+                        <th>Comments</th>
+                        <th>Username</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-xs-8">
+                            <ul style="margin-left: 10px">
+                                {% for comment in recipe.comment_set.all %}
+                                    <li>{{ comment.comment }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td class="col-xs-2">
+                            <ul style="margin-left: 15px">
+                                {% for comment in recipe.comment_set.all %}
+                                    <li>{{ comment.user_id.nickname }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 这里可以添加其他菜谱相关内容，如评论、点赞等 -->
+        <!-- 展示三个推荐菜谱? 随机/评分/用户爱好-->
+        {% for _ in "123" %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{ recipe.r_imagefield.url }}" alt="{{ recipe.title }}">
+                    <!-- 测试图片 -->
+                    <img src="https://i3.meishichina.com/attachment/magic/2024/01/27/2024012717063469037501.jpg">
+                    <div class="caption" style="text-align: center">
+                        <h3>{{ recipe.title }}</h3>
+                        <p>{{ recipe.avg_rating }}</p>
+                        <a href="/recipes/{{ recipe.id }}" class="btn btn-danger btn-round mb-1"
+                           style="background-color: #E23D1B;">View More</a>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
-    <!-- 这里可以添加其他菜谱相关内容，如评论、点赞等 -->
+
+
+    </div>
+</div>
 </body>
 </html>

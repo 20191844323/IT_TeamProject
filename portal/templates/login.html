@@ -1,35 +1,76 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>登录/注册</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1/css/bootstrap.css">
     <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <style>
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="login-register-form">
-            <h2>登录/注册</h2>
-            <div class="choose-option">
-                <label><input type="radio" name="option" value="login"> 登录</label>
-                <label><input type="radio" name="option" value="register"> 注册</label>
-            </div>
-            <div class="input-fields">
-                <div class="input-field">
-                    <label for="nickname">昵称:</label>
-                    <input type="text" id="nickname" name="nickname">
-                </div>
-                <div class="input-field">
-                    <label for="password">密码:</label>
-                    <input type="password" id="password" name="password">
-                </div>
-                <div class="input-field">
-                    <label for="email">邮箱:</label>
-                    <input type="email" id="email" name="email">
-                </div>
-            </div>
-            <button type="submit">提交</button>
+<!--页头 header&menu-bar 之后替换-->
+{% comment %}
+    <div class="header">
+        <div class="logo">网站 Logo</div>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索...">
+            <button type="submit">Search</button>
+        </div>
+        <div class="login-register">
+            <a href="/login/">登录/注册</a>
         </div>
     </div>
+    <div class="menu-bar">
+        <div class="menu-item">首页</div>
+        <div class="menu-item">菜谱</div>
+        <div class="menu-item">Contact us</div>
+    </div>{% endcomment %}
+<div class="jumbotron jumbotron-xl jumbotron-fluid overlay overlay-red"
+     style="background-size:cover; background-image:url(/static/img/orange.jpg);">
+    <div class="account">
+        <h1 class="title" style="font-size: xxx-large">Sign in</h1>
+        <p style="text-align: center; font-size: small">Log in to post a recipe or see your favorite recipes</p>
+
+        <p style=" text-align: right; font-size: small">Not a member?
+            <a data-testid="register-action" href="/register/">Register now › </a>
+        </p>
+
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password"
+                       required>
+            </div>
+            {% comment %}<div style="display: flex; justify-content: space-between;align-items: center;">
+                 <div class="checkbox"> 多余的功能 忘记密码和记住密码 看要不要
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+            </div>
+            <div>
+                Forgot password?
+                <a id="login-continue1" href="" ;> Click here › </a>
+            </div>
+            </div>
+            {% endcomment %}
+            <div class="btn-container" style="margin-top: 8px">
+                <button type="submit" class="btn btn-lg btn-danger btn-round  mb-1" 
+                        style="font-size: small">Sign in
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+
+</div>
+
 </body>
 </html>
