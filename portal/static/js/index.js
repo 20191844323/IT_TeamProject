@@ -19,22 +19,22 @@ $(function() {
 	}
 	if($(".a1").text()!="登录"){
 		$(".box1 li").eq(9).click(function(){
-			window.open("协议规则.html?username=" +$(".a1").text() , "_blank");
+			window.open(".html?username=" +$(".a1").text() , "_blank");
 		})
 		$(".box1 li").eq(7).click(function(){
-			window.open("企业团购.html?username=" + $(".a1").text() , "_blank");
+			window.open(".html?username=" + $(".a1").text() , "_blank");
 		})
 		$(".box1 li").eq(4).click(function(){
-			window.open("天星数科.html?username=" + $(".a1").text() , "_blank");
+			window.open(".html?username=" + $(".a1").text() , "_blank");
 		})
 		$(".b1").click(function(){
-			window.open("购物车.html?username=" + $(".a1").text() , "_blank");
+			window.open(".html?username=" + $(".a1").text() , "_blank");
 		})
 		$(".box13 li").eq(4).click(function(){
-			window.open("购物车.html?username=" + $(".a1").text() , "_blank");
+			window.open(".html?username=" + $(".a1").text() , "_blank");
 		})
 		$(".box13 li").eq(2).click(function(){
-			window.open("售后服务.html?username=" + $(".a1").text() , "_blank");
+			window.open(".html?username=" + $(".a1").text() , "_blank");
 		})
 		$(".box1 li").eq(0).click(function(){
 			window.open("index.html?username=" + $(".a1").text() , "_self");
@@ -43,41 +43,41 @@ $(function() {
 			window.open("index.html?username=" + $(".a1").text() , "_self");
 		})
 		$(".box3 #fw").click(function(){
-			window.open("服务.html?username=" + $(".a1").text() , "_blank");
+			window.open(".html?username=" + $(".a1").text() , "_blank");
 		})
 		$(".a6 li").eq(1).click(function(){
-			window.open("企业团购.html?username=" + $(".a1").text() , "_blank");
+			window.open(".html?username=" + $(".a1").text() , "_blank");
 		})
 		$(".a6 li").eq(2).click(function(){
-			window.open("F码通道.html?username=" + $(".a1").text() , "_blank");
+			window.open(".html?username=" + $(".a1").text() , "_blank");
 		})
 		$(".a6 li").eq(3).click(function(){
-			window.open("米粉卡.html?username=" + $(".a1").text() , "_blank");
+			window.open(".html?username=" + $(".a1").text() , "_blank");
 		})
 		$(".a6 li").eq(4).click(function(){
-			window.open("以旧换新.html?username=" + $(".a1").text() , "_blank");
+			window.open(".html?username=" + $(".a1").text() , "_blank");
 		})
 		$(".dj a").click(function(){
-			window.open("商品详情页.html?username=" + $(".a1").text() , "_blank");
+			window.open(".html?username=" + $(".a1").text() , "_blank");
 		})
 	}else{
 		$(".box1 li").eq(4).click(function(){
-			window.open("天星数科.html" , "_blank");
+			window.open(".html" , "_blank");
 		})
 		$(".box1 li").eq(9).click(function(){
-			window.open("协议规则.html", "_blank");
+			window.open(".html", "_blank");
 		})
 		$(".box1 li").eq(7).click(function(){
-			window.open("企业团购.html", "_blank");
+			window.open(".html", "_blank");
 		})
 		$(".b1").click(function(){
-			window.open("购物车.html" , "_blank");
+			window.open(".html" , "_blank");
 		})
 		$(".box13 li").eq(4).click(function(){
-			window.open("购物车.html" , "_blank");
+			window.open(".html" , "_blank");
 		})
 		$(".box13 li").eq(2).click(function(){
-			window.open("售后服务.html" , "_blank");
+			window.open(".html" , "_blank");
 		})
 		$(".box1 li").eq(0).click(function(){
 			window.open("index.html" , "_self");
@@ -86,22 +86,22 @@ $(function() {
 			window.open("index.html" , "_self");
 		})
 		$(".box3 #fw").click(function(){
-			window.open("服务.html"  , "_blank");
+			window.open(".html"  , "_blank");
 		})
 		$(".a6 li").eq(1).click(function(){
-			window.open("企业团购.html", "_blank");
+			window.open(".html", "_blank");
 		})
 		$(".a6 li").eq(2).click(function(){
-			window.open("F码通道.html", "_blank");
+			window.open(".html", "_blank");
 		})
 		$(".a6 li").eq(3).click(function(){
-			window.open("米粉卡.html" , "_blank");
+			window.open(".html" , "_blank");
 		})
 		$(".a6 li").eq(4).click(function(){
-			window.open("以旧换新.html" , "_blank");
+			window.open(".html" , "_blank");
 		})
 		$(".dj a").click(function(){
-			window.open("商品详情页.html" , "_blank");
+			window.open(".html" , "_blank");
 		})
 	}
 	$(".box2 li:last a:last").click(function(){
@@ -126,7 +126,7 @@ $(function() {
 		$(".box4 span").css("borderLeftColor","#e0e0e0")
 		$(".box4 .a7").css("display","none")
 	})
-	var arr=["净水器","智能门锁","吸尘器","空气净化器","扫地机器人"];
+	var arr=["","","","",""];
 	setInterval(function(){
 		$(".box4 input").prop("placeholder",arr[i])
 		i++;
