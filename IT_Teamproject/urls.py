@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from portal.views import LoginView, IndexView, RegisterView, RecipeView, SendVerificationCode
+from portal.views import LoginView, IndexView, RegisterView, RecipeView, SendVerificationCode,ContactUsView
 
 urlpatterns = [
 
@@ -32,4 +32,6 @@ urlpatterns = [
 
     # 动态urls写recipes     path('recipes/<int:id>', RecipesView.as_view(),name='recipes')
     path('recipes/<int:recipe_id>/', RecipeView.as_view(), name='recipe_detail'),
+
+    path('contact_us/', ContactUsView.as_view(), name='contact_us'),
 ]

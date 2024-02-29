@@ -1,0 +1,301 @@
+.wrap{
+    width: 1226px;
+    margin: 0 auto;
+}
+
+
+/* 黑色导航 start */
+.nav {
+	height: 40px;
+	background-color: #333;
+}
+
+.w {
+	/* overflow: hidden; */
+	width: 1180px;
+	margin: 0 auto;
+}
+
+ul {
+	list-style: none;
+}
+
+.box1 {
+	float: left;
+}
+
+.w .box1 li {
+	position: relative;
+	padding: 0 8px;
+	float: left;
+}
+.box1 li:nth-child(11) .div1{
+	display: none;
+	position: absolute;
+	top: 42px;
+	left: -37px;
+	padding: 20px 20px 10px;
+	background-color: white;
+	z-index: 20;
+	color: #757575;
+	box-shadow: 0px 2px 6px 0px;
+}
+
+.box1 li:nth-child(11) .div1::before{
+	content: '';
+	position: absolute;
+	top: -18px;
+	left: 58px;
+	border-color:transparent;
+	border-width: 10px;
+	border-style: solid;
+	border-bottom-color: white;
+}
+.w .box1 li:nth-child(-n+12)::after {
+	content: "";
+	position: absolute;
+	display: inline-block;
+	top: 14px;
+	right: 0;
+	width: 1px;
+	height: 11px;
+	border-right: 1px solid #424242;
+}
+
+.w .box1 li:first-child {
+	padding-left: 0;
+}
+
+.w .box1 li a {
+	line-height: 40px;
+	text-decoration: none;
+	color: #b0b0b0;
+	font-size: 13px;
+}
+
+.yinchan {
+	display: none;
+}
+
+.box2 {
+	position: absolute;
+	right: 243px;
+	height: 40px;
+	width: 300px;
+}
+.box2 li:last-child div{
+	display: none;
+	position: absolute;
+	top: 13.5px;
+	right: 11px;
+	width: 6px;
+	height: 6px;
+	transform: rotate(135deg);
+	border-top: 3px solid #b0b0b0;
+	border-right: 3px solid #b0b0b0;
+}
+.box2 li:last-child:hover div{
+	transform: rotate(-45deg);
+	top: 16.5px;
+}
+.w .box2 li {
+	position: absolute;
+	padding: 0 8px;
+	text-align: center;
+	background-color: #333;
+}
+
+.w .box2 li:first-child {
+	right: 8px;
+}
+
+.w .box1 li a:hover,
+.nav .w .box2 li a:hover {
+	color: #eee;
+}
+
+.w .box2 li:nth-child(n+2)::after {
+	content: "";
+	position: absolute;
+	display: inline-block;
+	top: 14px;
+	right: 0;
+	width: 1px;
+	height: 11px;
+	border-right: 1px solid #424242;
+}
+
+.w .box2 li a {
+	line-height: 40px;
+	text-decoration: none;
+	display: block;
+	color: #b0b0b0;
+	width: 69px;
+	font-size: 12px;
+}
+
+.w .box2 li:last-child {
+	top: 0;
+	right: 80px;
+	height: 40px;
+	z-index: 2;
+}
+
+.b1 {
+	position: absolute;
+	right: 147px;
+	height: 40px;
+	padding: 0 10px;
+	background-color: rgb(66, 66, 66);
+}
+
+.b1:hover {
+	background-color: #EEEEEE;
+}
+
+.b1:hover::before,
+.b1:hover a {
+	color: #FF6767;
+}
+
+.b1::before {
+	content: "\e93a";
+	font-family: 'icomoon';
+	color: #b0b0b0;
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+.b1 a {
+	line-height: 40px;
+	text-decoration: none;
+	color: #b0b0b0;
+	font-size: 12px;
+}
+
+/* 黑色导航 end */
+
+/* 白色导航 start */
+
+.white-nav{
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+}
+
+.logo{
+    width: 55px;
+    height: 55px;
+    background-color: #ff6767;
+    float: left;
+    margin-top: 22.5px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.logo>img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.2s;
+}
+
+.mi-home{
+    left: -55px;
+}
+
+.mi-logo{
+    left: 0;
+}
+
+.logo:hover>.mi-home{
+    left: 0px;
+}
+.logo:hover>.mi-logo{
+    left: 55px;
+}
+
+.nav-bar{
+    width: 875px;
+    height: 100px;
+    line-height: 100px;
+    float: left;
+
+}
+
+.search{
+    width: 296px;
+    height: 100px;
+    float: right;
+}
+.nav-bar li{
+    float: left;
+}
+.nav-bar li a{
+    color: #333;
+    padding: 0 10px;
+	text-decoration: none;
+}
+.nav-bar li a:hover{
+    color: #ff6767;
+}
+.nav-bar ul li img{
+    margin-top: 22.5px;
+}
+
+.search input{
+    /* 296 - 244 = 52 */
+    width: 244px;
+    height: 50px;
+    float: left;
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    margin-top: 25px;
+    padding: 0 10px;
+    outline: none;
+    border-right: 0;
+}
+
+.search button{
+    width: 52px;
+    height: 50px;
+    float: right;
+    border: 1px solid #e0e0e0;
+    background-color:#FF6767;
+    margin-top: 25px;
+}
+
+.search button:hover{
+    background: #ff6767;
+    color: #fff;
+}
+
+/* 白色导航 end */
+
+
+/* Content Start */
+.box4 {
+    overflow: hidden;
+    position: relative;
+    height: 460px;
+    /* background-color: blue; */
+}
+
+.box4 .a3 {
+    position: absolute;
+    left: 72px;
+    padding: 40px 0; /* 增加 Contact Us 与 Na Xu 之间的垂直间距 */
+}
+
+.h1 {
+    color: #d53d00;
+    margin-left: 30px; /* 使 Contact Us 与 Na Xu 之间增加间距 */
+}
+
+
+/* Content End */
+
+
+

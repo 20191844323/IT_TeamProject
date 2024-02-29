@@ -45,7 +45,9 @@ class RecipeView(View):
     def post(self, request, *args, **kwargs):
         return HttpResponse('This is a POST response from RecipeView')
 
-
+class ContactUsView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "contact_us.html")
 
 
 
