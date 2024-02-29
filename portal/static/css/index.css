@@ -156,7 +156,7 @@ ul {
 
 .b1:hover::before,
 .b1:hover a {
-	color: #FF6767;
+	color: #ef4500;
 }
 
 .b1::before {
@@ -187,7 +187,7 @@ ul {
 .logo{
     width: 55px;
     height: 55px;
-    background-color: #ff6767;
+    background-color: #ef4500;
     float: left;
     margin-top: 22.5px;
     overflow: hidden;
@@ -240,7 +240,7 @@ ul {
 	text-decoration: none;
 }
 .nav-bar li a:hover{
-    color: #ff6767;
+    color: #ef4500;
 }
 .nav-bar ul li img{
     margin-top: 22.5px;
@@ -264,12 +264,12 @@ ul {
     height: 50px;
     float: right;
     border: 1px solid #e0e0e0;
-    background-color:#FF6767;
+    background-color:#ef4500;
     margin-top: 25px;
 }
 
 .search button:hover{
-    background: #ff6767;
+    background: #ef4500;
     color: #fff;
 }
 
@@ -311,7 +311,7 @@ ul {
 }
 
 .box5 .a3 li:hover {
-	background-color: #FF6767;
+	background-color: #ef4500;
 }
 
 .box5 .a3 li a {
