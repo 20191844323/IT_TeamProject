@@ -49,6 +49,13 @@ class ContactUsView(View):
     def get(self, request, *args, **kwargs):
         return render(request, "contact_us.html")
 
+class UserCenterView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "user_center.html")
+
+class InformationView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "information.html")
 
 
 
