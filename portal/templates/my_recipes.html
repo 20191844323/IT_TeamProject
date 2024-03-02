@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User Center</title>
+    <title>Flavor</title>
     <!-- 引入网页图表 link rel="icon" href="./images/favicon.ico"-->
     <link rel="stylesheet" href="../static/css/public.css">
     <!-- 引入字体图标 -->
     <link rel="stylesheet" href="../static/plugins/iconfont/iconfont.css">
 
-    <link rel="stylesheet" href="../static/css/user_center.css">
+    <link rel="stylesheet" href="../static/css/my_recipes.css">
 </head>
 <body>
     <!-- 黑色导航start -->
@@ -75,13 +75,13 @@
 				<div>
                     <h4>My Account</h4>
 					<ul>
-						<li class="on"><a href="user_center.html">Index</a></li>
+						<li><a href="user_center.html">Index</a></li>
                         <li><a href="information.html">Information</a></li>
 					</ul>
 					<h4>What I posted</h4>
 					<ul>
-						<li><a href="/my_recipes/">Recipes</a></li>
-						<li><a href="#">Comments</a></li>
+						<li class="on"><a href="/my_recipes/">Recipes</a></li>
+						<li><a href="/my_comments/">Comments</a></li>
 					</ul>
 					<h4>What I Liked</h4>
 					<ul>
@@ -90,39 +90,53 @@
 				</div>
 			</div>
 			<div class="you fl">
-				<div class="tx clearfix">
-					<div class="fl clearfix">
-						<a href="#" class="fl"><img src="img/tx.png"/></a>
-						<p class="fl"><span>TEST</span><a href="mygrxx.html">Edit></a></p>
-					</div>
-					<div class="fr">Email：{{ user.email }}</div>
+				<div class="my clearfix">
+					<h2 class="fl">My Recipes</h2>
 				</div>
-				<div class="bott">
-					<div class="clearfix">
-						<a href="#" class="fl"><img src="img/gxin1.jpg"/></a>
-						<p class="fl"><span>TODO<strong>0</strong></span>
-							<a href="myorderq.html">View></a>
-						</p>
+				<div class="dlist clearfix">
+					<ul class="fl clearfix" id="wa">
+						<li class="on"><a href="#">All </a></li>
+						<li><a href="#2">Delete</a></li>
+
+					</ul>
+				</div>
+
+				<div class="dkuang deng">
+					<p class="one">PUBLISHED</p>
+					<div class="word clearfix">
+						<ul class="fl clearfix">
+							<li>TIME</li>
+							<li>{{ user.nickname }}</li>
+						</ul>
 					</div>
-					<div class="clearfix">
-						<a href="#" class="fl"><img src="img/gxin2.jpg"/></a>
-						<p class="fl"><span>TODO<strong>0</strong></span>
-							<a href="myorderq.html">View></a>
-						</p>
-					</div>
-					<div class="clearfix">
-						<a href="#" class="fl"><img src="img/gxin3.jpg"/></a>
-						<p class="fl"><span>TODO<strong>0</strong></span>
-							<a href="myprod.html">View></a>
-						</p>
-					</div>
-					<div class="clearfix">
-						<a href="#" class="fl"><img src="img/gxin4.jpg"/></a>
-						<p class="fl"><span>TODO<strong>0</strong></span>
-							<a href="#">View></a>
+					<div class="shohou clearfix">
+						<a href="#" class="fl"><img src="img/g1.jpg"/></a>
+						<p class="fl"><a href="#">{{ recipes.title }}</a><a href="#">{{ recipes.category }}</a></p>
+						<p class="fr">
+                        <a href="#">VIEW</a>
+						<a href="#">DELETE</a>
 						</p>
 					</div>
 				</div>
+
+				<div class="dkuang deng">
+					<p class="one">DELETE</p>
+					<div class="word clearfix">
+						<ul class="fl clearfix">
+							<li>TIME</li>
+							<li>{{ user.nickname }}</li>
+						</ul>
+					</div>
+					<div class="shohou clearfix">
+						<a href="#" class="fl"><img src="img/g1.jpg"/></a>
+						<p class="fl"><a href="#">{{ recipes.title }}</a><a href="#">{{ recipes.category }}</a></p>
+						<p class="fr">
+                        <a href="#">VIEW</a>
+						<a href="#">DELETE</a>
+						</p>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>

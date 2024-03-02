@@ -283,14 +283,10 @@ ul {
     /* background-color: blue; */
 }
 
-.box4 .a3 {
-    position: absolute;
-    padding: 20px 0; /* 增加 Contact Us 与 Na Xu 之间的垂直间距 */
-}
 
 .h1 {
     color: #d53d00;
-    margin-left: 30px; /* 使 Contact Us 与 Na Xu 之间增加间距 */
+    margin-left: 30px;
 }
 
 
