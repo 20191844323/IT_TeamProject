@@ -8,7 +8,7 @@
     <!-- 引入字体图标 -->
     <link rel="stylesheet" href="../static/plugins/iconfont/iconfont.css">
 
-    <link rel="stylesheet" href="../static/css/user_center.css">
+    <link rel="stylesheet" href="../static/css/information.css">
 </head>
 <body>
     <!-- 黑色导航start -->
@@ -33,7 +33,6 @@
 					<p class="yinchan" style="background-color: #333;width: 80px;position: absolute;">
 						<a href="#" class="a2">个人空间</a>
 						<a href="#" class="a2">退出登录</a>
-						<!-- 利用button加window.open也可以实现跟a一样的效果 -->
 					</p>
 				</li>
 			</ul>
@@ -41,7 +40,6 @@
 		</div>
 	</div>
 	<!-- 黑色导航end -->
-
 
     <!-- 白色导航 start -->
     <div class="white-nav">
@@ -65,7 +63,7 @@
     <!-- 白色导航 end -->
 
     <!-- Content Start -->
-    <div class="Bott">
+	<div class="Bott">
 		<div class="wrapper clearfix">
 			<div class="zuo fl">
 				<h3>
@@ -75,8 +73,8 @@
 				<div>
                     <h4>My Account</h4>
 					<ul>
-						<li class="on"><a href="user_center.html">Index</a></li>
-                        <li><a href="information.html">Information</a></li>
+						<li><a href="user_center.html">Index</a></li>
+                        <li class="on"><a href="information.html">Information</a></li>
 					</ul>
 					<h4>What I posted</h4>
 					<ul>
@@ -90,41 +88,60 @@
 				</div>
 			</div>
 			<div class="you fl">
-				<div class="tx clearfix">
-					<div class="fl clearfix">
-						<a href="#" class="fl"><img src="img/tx.png"/></a>
-						<p class="fl"><span>TEST</span><a href="mygrxx.html">Edit></a></p>
-					</div>
-					<div class="fr">Email：{{ user.email }}</div>
-				</div>
-				<div class="bott">
-					<div class="clearfix">
-						<a href="#" class="fl"><img src="img/gxin1.jpg"/></a>
-						<p class="fl"><span>TODO<strong>0</strong></span>
-							<a href="myorderq.html">View></a>
-						</p>
-					</div>
-					<div class="clearfix">
-						<a href="#" class="fl"><img src="img/gxin2.jpg"/></a>
-						<p class="fl"><span>TODO<strong>0</strong></span>
-							<a href="myorderq.html">View></a>
-						</p>
-					</div>
-					<div class="clearfix">
-						<a href="#" class="fl"><img src="img/gxin3.jpg"/></a>
-						<p class="fl"><span>TODO<strong>0</strong></span>
-							<a href="myprod.html">View></a>
-						</p>
-					</div>
-					<div class="clearfix">
-						<a href="#" class="fl"><img src="img/gxin4.jpg"/></a>
-						<p class="fl"><span>TODO<strong>0</strong></span>
-							<a href="#">View></a>
-						</p>
+				<h2>PERSONAL INFORMATIONS</h2>
+				<div class="gxin">
+					<div class="tx"><a href="#"><img src="img/tx.png"/><p id="avatar">Edit</p></a></div>
+					<div class="xx">
+						<h3 class="clearfix"><strong class="fl">Basic Settings</strong><a href="#" class="fr" id="edit1">Edit</a></h3>
+						<div>NICKNAME：{{ user.neckname }}</div>
+						<div>PASSWORD：{{ user.password }}</div>
+						<div>Email：{{ user.email }}</div>
+						<h3>Advanced Settings</h3>
+						<div><span class="fl">TODO</span><a href="#" class="fr" id="edit2">Edit</a></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!--遮罩-->
+	<div class="mask"></div>
+	<!--编辑弹框-->
+	<div class="bj">
+		<div class="clearfix"><a href="#" class="fr gb"><img src="img/icon4.png"/></a></div>
+		<h3>Edit Informations</h3>
+		<form action="#" method="get">
+			<p><label>Nickname：</label><input type="text"  value="" /></p>
+			<p><label>Password：</label><input type="text"   /></p>
+			<p><label>Email：</label><input type="text"   /></p>
+			<div class="bc">
+				<input type="button" value="SAVE"  />
+				<input type="button" value="CANCEL" />
+			</div>
+		</form>
+	</div>
+	<!--高级设置修改-->
+	<div class="xg">
+		<div class="clearfix"><a href="#" class="fr gb"><img src="img/icon4.png"/></a></div>
+		<h3>TODO</h3>
+		<form action="#" method="get">
+			<p><label>TODO：</label><input type="text"  value="***" /></p>
+			<div class="bc">
+				<input type="button" value="SAVE" />
+				<input type="button" value="CANCEL" />
+			</div>
+		</form>
+	</div>
+	<!--修改头像-->
+	<div class="avatar">
+		<div class="clearfix"><a href="#" class="fr gb"><img src="img/icon4.png"/></a></div>
+		<h3>Edit Icon</h3>
+		<form action="#" method="get">
+			<h4>Upload Photos</h4>
+			<input type="button" value="UPLOAD ICON" />
+			<p>jpg or png,no more than 2M</p>
+			<input type="submit" value="SUBMIT" />
+		</form>
+	</div>
+    <!-- Content End -->
 </body>
 </html>
