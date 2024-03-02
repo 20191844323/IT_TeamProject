@@ -57,6 +57,10 @@ class InformationView(View):
     def get(self, request, *args, **kwargs):
         return render(request, "information.html")
 
+class MyRecipesView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "my_recipes.html")
+
 
 
 @require_POST

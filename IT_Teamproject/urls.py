@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from portal.views import LoginView, IndexView, RegisterView, RecipeView, SendVerificationCode,ContactUsView,UserCenterView,InformationView
+from portal.views import LoginView, IndexView, RegisterView, RecipeView, SendVerificationCode,MyRecipesView,ContactUsView,UserCenterView,InformationView
 
 urlpatterns = [
 
@@ -38,5 +38,6 @@ urlpatterns = [
     path('user_center/', UserCenterView.as_view(), name='user_center'),
 
     path('information/', InformationView.as_view(), name='information'),
+
 
 ]
