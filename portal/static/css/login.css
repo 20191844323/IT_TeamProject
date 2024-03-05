@@ -19,6 +19,13 @@
     font-weight: bold;
 }
 
+.jumbotron .subtitle {
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 2px;
+
+}
+
 .btn-container {
     display: flex;
     flex-direction: column;
@@ -102,7 +109,7 @@
 
 .btn:focus, .btn.focus {
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(80, 44, 108, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(250, 167, 113, 0.25);
 }
 
 .btn.disabled, .btn:disabled {
