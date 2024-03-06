@@ -34,7 +34,20 @@ class RegisterView(View):
     def post(self, request, *args, **kwargs):
         # 在这里处理用户提交的注册信息
         # 例如，您可以从request.POST中获取用户名和密码，然后创建一个新的用户
+        if request.method == 'POST':
+            # 从 POST 请求中获取表单数据
+            nickname = request.POST.get('nickname')
+            password = request.POST.get('password')
+            email = request.POST.get('email')
+            icon = request.POST.get('icon')  # 如果是文件上传，你可能需要使用 request.FILES
+
+            # 创建一个新的 User 对象
+            user = User(nickname=nickname, password=password, email=email, icon=icon)
+
+            # 将 User 对象保存到数据库
+            user.save()
         return HttpResponse('This is a POST response from RegisterView')
+
 
 
 class RecipeView(View):
