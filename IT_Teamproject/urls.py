@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from portal.views import LoginView, IndexView, RegisterView, RecipeView, SendVerificationCode,MyRecipesView,ContactUsView,UserCenterView,InformationView,PublishRecipesView
+from portal.views import LoginView, IndexView, RegisterView, RecipeView, SendVerificationCode,MyRecipesView,ContactUsView,UserCenterView,InformationView,PublishRecipesView,SearchRecipesView
+from portal import views
 
 urlpatterns = [
 
@@ -41,5 +42,8 @@ urlpatterns = [
 
     path('publish_recipes/', PublishRecipesView.as_view(), name='publish_recipes'),
 
+    path('search/', SearchRecipesView.as_view(), name='search'),
+
+    path('top_three_recipes/', views.top_three_recipes, name='top_three_recipes'),
 
 ]

@@ -1,11 +1,16 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
-from .models import Recipe
+from .models import Recipe, Comment
 from django.views.generic.base import View
 import random
 from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
+from django.shortcuts import render
+from django.views.decorators.http import require_http_methods
+from django.db.models import Avg
+
+
 
 
 # Create your views here.
@@ -92,6 +97,29 @@ def SendVerificationCode(request):
 
     return JsonResponse({'success': True})
 
+
+class SearchRecipesView(View):
+    @require_http_methods(["GET", "POST"])
+    def get(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            query = request.POST.get('q', '')  # 获取POST参数
+            results = Recipe.objects.filter(my_field__icontains=query)  # 执行搜索
+            if results.exists():  # 检查结果集是否为空
+                return render(request, 'search.html', {'results': results})  # 如果不为空，渲染模板
+            else:
+                return render(request, 'search.html', {'message': 'No results found.'})  # 如果为空，返回一个消息
+        else:
+            return render(request, 'search.html')
+
+
+
+def top_three_recipes(request):
+    # 计算每个食谱的平均评分
+    recipes = Recipe.objects.annotate(avg_rating=Avg('comment__rating'))
+    # 对食谱进行降序排序并提取前三名
+    top_three = recipes.order_by('-avg_rating')[:3]
+    # 将 top_three 传递，或者以其他方式处理
+    return top_three
 
 '''
 class RecipeView(View):
