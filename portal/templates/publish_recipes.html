@@ -79,7 +79,7 @@
         <div class="zuo fl">
             <h3>
                 <a href="#"><img src="../static/img/R.gif" width="120px" height="120px"></a>
-                <p class="clearfix"><span class="fl">{{ user.neckname }}</span></p>
+                <p class="clearfix"><span class="fl">{{ user.nickname }}</span></p>
             </h3>
             <div>
                 <h4>My Account</h4>
@@ -127,14 +127,12 @@
                                     onChange="document.form1.path.value=this.value">
                         </form>
                     </div>
-                    <div style="margin-top: 20px">
-                        <button type="submit" class="btn btn-success" style="font-size: small">Save as Draft</button>
-                        <button type="submit" class="btn btn-danger" style="margin-left: 10px; font-size: small">
-                            Submit
-                        </button>
-                    </div>
-
-
+                        <form method="post" action="/submit_recipe/" enctype="multipart/form-data">
+                                <div style="margin-top: 20px">
+                                <button type="submit" class="btn btn-success" style="font-size: small">Save as Draft</button>
+                                <button type="submit" class="btn btn-danger" style="margin-left: 10px; font-size: small">Submit</button>
+                            </div>
+                        </form>
                 </form>
 
             </div>

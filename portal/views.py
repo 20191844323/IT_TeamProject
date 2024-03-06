@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
-from .models import Recipe, Comment
+from .models import Recipe, Comment, User
 from django.views.generic.base import View
 import random
 from django.core.mail import send_mail
@@ -50,6 +50,14 @@ class RecipeView(View):
     def post(self, request, *args, **kwargs):
         return HttpResponse('This is a POST response from RecipeView')
 
+    def top_three_recipes(self, request):
+        # 计算每个食谱的平均评分
+        recipes = Recipe.objects.annotate(avg_rating=Avg('comment__rating'))
+        # 对食谱进行降序排序并提取前三名
+        top_three = recipes.order_by('-avg_rating')[:3]
+        # 将 top_three 传递，或者以其他方式处理
+        return top_three
+
 
 class ContactUsView(View):
     def get(self, request, *args, **kwargs):
@@ -68,12 +76,26 @@ class InformationView(View):
 
 class MyRecipesView(View):
     def get(self, request, *args, **kwargs):
+        def user_view(request):
+            users = User.objects.all()
         return render(request, "my_recipes.html")
 
 
 class PublishRecipesView(View):
     def get(self, request, *args, **kwargs):
         return render(request, "publish_recipes.html")
+
+    def submit_recipie(self, request):
+        if request.method == 'POST':
+            user = User.objects.get(username='username')
+            title = request.POST['title']
+            content = request.POST['content']
+            image = request.FILES['picpath']
+                # 处理图片上传...
+                # 创建一个新的 Recipe 对象
+            recipe = Recipe(title=title, user_id=user.id, category= 0, avg_rating= 0, content=content, r_imagefield=image)
+                # 将 Recipe 对象保存到数据库
+            recipe.save()
 
 
 @require_POST
@@ -111,15 +133,6 @@ class SearchRecipesView(View):
         else:
             return render(request, 'search.html')
 
-
-
-def top_three_recipes(request):
-    # 计算每个食谱的平均评分
-    recipes = Recipe.objects.annotate(avg_rating=Avg('comment__rating'))
-    # 对食谱进行降序排序并提取前三名
-    top_three = recipes.order_by('-avg_rating')[:3]
-    # 将 top_three 传递，或者以其他方式处理
-    return top_three
 
 '''
 class RecipeView(View):
