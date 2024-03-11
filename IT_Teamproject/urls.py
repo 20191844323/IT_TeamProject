@@ -45,5 +45,6 @@ urlpatterns = [
     path('search/', SearchRecipesView.as_view(), name='search'),
 
     path('top_three_recipes/', views.top_three_recipes, name='top_three_recipes'),
+    path('recipes/<int:recipe_id>/')
 
 ]
