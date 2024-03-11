@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavor</title>
+    <!-- 引入网页图表 link rel="icon" href="./images/favicon.ico"-->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="/static/plugins/iconfont/iconfont.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+    <!-- 黑色导航start -->
+    <div class="nav">
+		<div class="w">
+			<ul class="box1">
+				<li><a href="{% url 'index' %}">HomePage</a></li>
+				<li><a href="{% url 'myaccount' %}">Recipes</a></li>
+				<li><a href="{% url 'myaccount' %}">Ingredients</a></li>
+				<li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+			</ul>
+			<div class="b1">
+				<a href="{% url 'myaccount' %}">Favorites({{ count_favorite }})</a>
+			</div>
+			<ul class="box2">
+				{% if 'nickname' not in request.session or 'id' not in request.session %}
+					<li><a href="{% url 'register' %}">Register</a></li>
+					<li><a href="{% url 'login' %}" class="a1">Login</a>
+				{% else %}
+					<li><a href="{% url 'myaccount' %}">{{ request.session.nickname }}</a></li>
+					<li><a href="{% url 'logout' %}" class="a1">Log out</a>
+				{% endif %}
+					<div>
+
+                    </div>
+					<p class="yinchan" style="background-color: #333;width: 80px;position: absolute;">
+						<a href="{% url 'myaccount' %}" class="a2">My Account</a>
+						<a href="{% url 'logout' %}" class="a2">Log out</a>
+					</p>
+				</li>
+			</ul>
+			<!-- </div> -->
+		</div>
+	</div>
+	<!-- 黑色导航end -->
+
+    <!-- 白色导航 start -->
+    <div class="white-nav">
+        <div class="wrap">
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="javascript:;"><img src="/static/img/M.png" alt=""></a></li>
+                    <li><a href="javascript:;">HOMEPAGE</a></li>
+                    <li><a href="{% url 'myaccount' %}">RECIPES</a></li>
+                    <li><a href="{% url 'myaccount' %}">INGREDIENTS</a></li>
+                    <li><a href="{% url 'contact_us' %}">CONTACT US</a></li>
+                </ul>
+            </div>
+            <form action="{% url 'search' %}" method="get" class="search">
+                <input type="text" name="search" placeholder="Beijing Duck">
+                <button type="submit" class="iconfont">&#xe63d;</button>
+            </form>
+        </div>
+    </div>
+    <!-- 白色导航 end -->
+
+    <!-- 二级导航栏 start -->
+	<div class="w box5">
+		<ul class="a3">
+			{% for top_three_ in top_three %}
+				<li><a href="{% url 'recipe' %}?recipe_id={{ top_three_.id }}">{{ top_three_.title }}</a></li>
+			{% endfor %}
+		</ul>
+		<ul class="a4">
+			{% for top_three_ in top_three %}
+				<li><img src="/media/{{ top_three_.r_imagefield }}" width="1225px" height="460px"></li>
+			{% endfor %}
+		</ul>
+		<div class="box6"></div>
+		<div class="box7"></div>
+		<ul class="a5">
+		</ul>
+	</div>
+	<!-- 轮播图 end -->
+    <script src="/static/plugins/jquery.min.js"></script>
+    <script src="/static/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flavor</title>
+    <!-- 引入网页图表 link rel="icon" href="./images/favicon.ico"-->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="/static/plugins/iconfont/iconfont.css">
+
+    <link rel="stylesheet" href="/static/css/contact_us.css">
+</head>
+<body>
+    <!-- 黑色导航start -->
+    <div class="nav">
+		<div class="w">
+			<ul class="box1">
+				<li><a href="{% url 'index' %}">HomePage</a></li>
+				<li><a href="{% url 'recipes' %}">Recipes</a></li>
+				<li><a href="{% url 'myaccount' %}">Ingredients</a></li>
+				<li><a href="javascript:;">Contact Us</a></li>
+
+			</ul>
+			<!-- <div id="123"> -->
+			<div class="b1">
+				<a href="{% url 'myaccount' %}">Favorites({{ favorites_sum }})</a>
+			</div>
+			<ul class="box2">
+                {% if 'nickname' not in request.session or 'id' not in request.session %}
+					<li><a href="{% url 'register' %}">Register</a></li>
+					<li><a href="{% url 'login' %}" class="a1">Login</a>
+				{% else %}
+					<li><a href="{% url 'myaccount' %}">{{ request.session.nickname }}</a></li>
+					<li><a href="{% url 'logout' %}" class="a1">Log out</a>
+				{% endif %}
+					<div>
+                    </div>
+				</li>
+			</ul>
+			<!-- </div> -->
+		</div>
+	</div>
+	<!-- 黑色导航end -->
+
+    <!-- 白色导航 start -->
+    <div class="white-nav">
+        <div class="wrap">
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="{% url 'index' %}"><img src="/static/img/M.png" alt=""></a></li>
+                    <li><a href="{% url 'index' %}">HOMEPAGE</a></li>
+                    <li><a href="{% url 'recipes' %}">RECIPES</a></li>
+                    <li><a href="{% url 'myaccount' %}">INGREDIENTS</a></li>
+                    <li><a href="javascript:;">CONTACT US</a></li>
+
+                </ul>
+            </div>
+            <form action="{% url 'search' %}" method="get" class="search">
+                <input type="text" name="search" placeholder="Beijing Duck" value="{{ search }}">
+                <button type="submit" class="iconfont">&#xe63d;</button>
+            </form>
+        </div>
+    </div>
+    <!-- 白色导航 end -->
+
+    <!-- Content Start -->
+    <div class="box3">
+        <li><img src="/static/img/ContactUs.png" width="1225px" height="460px"></li>
+    </div>
+    <div class="box4">
+        <h1 class="h1">Contact Us</h1>
+    </div>
+
+    <script src="/static/js/contact_us.js"></script>
+    <!-- Content End -->
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!-- 3. 动态urls+html模版实现recipes界面-->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe.title }}</title>
+
+    <!-- 这里可以添加其他样式和脚本 -->
+        <link rel="stylesheet" href="/static/css/public.css">
+    <link rel="stylesheet" href="/static/css/information.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <style>
+        .recipe-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .recipe-image-container {
+            text-align: left;
+            padding-left: 100px;
+
+        }
+
+        .recipe-image-container img {
+            width: 350px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .recipe-info-container {
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: 40px;
+
+        }
+
+        .recipe-info-container p {
+            margin-top: 10px;
+        }
+
+        h4 {
+            margin-top: 20px;
+            font-weight: bold
+        }
+        #create_data{
+            width: 36.666667%!important;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!--页头 header&menu-bar 之后替换-->
+    <div class="header">
+<!--&lt;!&ndash;        <div class="logo">网站 Logo</div>&ndash;&gt;-->
+<!--        <div class="search-bar">-->
+<!--            <input type="text" placeholder="搜索...">-->
+<!--            <button type="submit">Search</button>-->
+<!--        </div>-->
+<!--        <div class="login-register">-->
+<!--            <a href="./login.html">登录/注册</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="menu-bar">-->
+<!--        <div class="menu-item">首页</div>-->
+<!--        <div class="menu-item">菜谱</div>-->
+<!--        <div class="menu-item">Contact us</div>-->
+<!--    </div>-->
+    <div class="nav">
+		<div class="w">
+			<ul class="box1">
+				<li><a href="{% url 'index' %}">HomePage</a></li>
+				<li><a href="{% url 'myaccount' %}">Recipes</a></li>
+				<li><a href="{% url 'myaccount' %}">Ingredients</a></li>
+				<li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+			</ul>
+			<!-- <div id="123"> -->
+			<div class="b1">
+				<a href="{% url 'myaccount' %}">Favorites({{ count_favorite }})</a>
+			</div>
+			<ul class="box2">
+				{% if 'nickname' not in request.session or 'id' not in request.session %}
+					<li><a href="{% url 'register' %}">Register</a></li>
+					<li><a href="{% url 'login' %}" class="a1">Login</a>
+				{% else %}
+					<li><a href="{% url 'myaccount' %}">{{ request.session.nickname }}</a></li>
+					<li><a href="{% url 'logout' %}" class="a1">Log out</a>
+				{% endif %}
+					<div>
+					</div>
+					<p class="yinchan" style="background-color: #333;width: 80px;position: absolute;">
+						<a href="{% url 'myaccount' %}" class="a2">My Account</a>
+						<a href="{% url 'logout' %}" class="a2">Log out</a>
+					</p>
+				</li>
+			</ul>
+			<!-- </div> -->
+		</div>
+	</div>
+
+<!--之后有具体的菜谱内容以后会再美化-->
+    <div class="recipe-container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="recipe-image-container">
+                    <div>
+                        <img src="/media/{{ recipe.r_imagefield }}" alt="{{ recipe.title }}">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="recipe-info-container">
+                    <h1>{{ recipe.title }}</h1>
+                    <p>Author: {{ recipe.user_id.nickname }}</p>
+                    <p>Average Rating: {{ average_rating }}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="recipe-details">
+            <div style="margin-left: 10px">
+                <h4>Content</h4>
+                <p>{{ recipe.content }}</p>
+            </div>
+            <div style="margin-left: 10px">
+                <h4>Make A Comment</h4>
+                <form method="post" action="{% url 'comment' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input name="recipe_id" value="{{ recipe.id }}" hidden>
+                        <input name="id" value="{{ request.session.id }}" hidden>
+                        <textarea class="form-control" rows="2" name="comment" placeholder="请输入评论："></textarea>
+                        <input type="number" placeholder="请输入评分(1,2,3,4,5)：" class="form-control rating-input" name="rating" min="1" max="5" step="1">
+                    </div>
+                    <div style="text-align: center">
+                        <button type="submit" class="btn btn-danger btn-round  mb-1"
+                                style="font-size: small">Submit
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="bs-example" data-example-id="simple-table">
+                <table class="table">
+                    <thead>
+                    <tr class="h4">
+                        <th>Comments</th>
+                        <th>Username</th>
+                        <th>rating</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-xs-8">
+                            <ul style="margin-left: 15px">
+                                {% for comment in comments %}
+                                    <li>{{ comment.comment }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td class="col-xs-2">
+                            <ul style="margin-left: 15px">
+                                {% for comment in comments %}
+                                    <li>{{ comment.user_id.nickname }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td class="col-xs-2">
+                            <ul style="margin-left: 15px">
+                                {% for comment in comments %}
+                                    <li>{{ comment.rating }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 这里可以添加其他菜谱相关内容，如评论、点赞等 -->
+        <!-- 展示三个推荐菜谱? 随机/评分/用户爱好-->
+        {% for top in top_three %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="/media/{{ top.r_imagefield }}" alt="{{ top.title }}">
+                    <div class="caption" style="text-align: center">
+                        <h3>{{ top.title }}</h3>
+                        <p>{{ top.avg_rating }}</p>
+                        <a href="/recipe?recipe_id={{ top.id }}" class="btn btn-danger btn-round mb-1"
+                           style="background-color: #E23D1B;">View More</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+
+    </div>
+</div>
+</body>
+</html>
