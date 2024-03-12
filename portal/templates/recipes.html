@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/styles.css">
     <link rel="stylesheet" href="/static/css/login.css">
+    
     <style>
         .recipe-container {
             max-width: 1000px;
@@ -57,9 +58,8 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <!--页头 header&menu-bar 之后替换-->
-    <div class="header">
+
+
 <!--&lt;!&ndash;        <div class="logo">网站 Logo</div>&ndash;&gt;-->
 <!--        <div class="search-bar">-->
 <!--            <input type="text" placeholder="搜索...">-->
@@ -105,8 +105,31 @@
 			<!-- </div> -->
 		</div>
 	</div>
-
-<!--之后有具体的菜谱内容以后会再美化-->
+    
+    <!--白色导航 start -->
+    <div class="white-nav">
+        <div class="wrap">
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="javascript:;"><img src="/static/img/M1.png" alt=""></a></li>
+                    <li><a href="javascript:;">HOMEPAGE</a></li>
+                    <li><a href="{% url 'myaccount' %}">RECIPES</a></li>
+                    <li><a href="{% url 'myaccount' %}">INGREDIENTS</a></li>
+                    <li><a href="{% url 'contact_us' %}">CONTACT US</a></li>
+                </ul>
+            </div>
+            <form action="{% url 'search' %}" method="get" class="search">
+                <input type="text" name="search" placeholder="Beijing Duck">
+                <button type="submit" class="iconfont">&#xe63d;</button>
+            </form>
+        </div>
+    </div>
+    <!-- 白色导航 end -->
+    
+    
+    
+    
+    <!--Content start-->
     <div class="recipe-container">
         <div class="row">
             <div class="col-xs-12 col-md-6">
