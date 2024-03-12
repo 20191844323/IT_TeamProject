@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <!-- 引入网页图表 link rel="icon" href="./images/favicon.ico"-->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="/static/plugins/iconfont/iconfont.css">
+
+    <link rel="stylesheet" href="/static/css/index.css">
+<link rel="stylesheet" href="/static/css/user_center.css">
+<style>
+    .clearfix1{
+        margin: 20px 0;
+        margin-left: 200px;
+    }
+    .clearfix1 img{
+        width: 200px!important;
+    }
+</style>
+</head>
+<body>
+    <!-- 黑色导航start -->
+    <div class="nav">
+		<div class="w">
+			<ul class="box1">
+                <li><a href="{% url 'index' %}">HomePage</a></li>
+                <li><a href="{% url 'myaccount' %}">Recipes</a></li>
+                <li><a href="{% url 'myaccount' %}">Ingredients</a></li>
+                <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+			</ul>
+			<!-- <div id="123"> -->
+			<div class="b1">
+				<a href="{% url 'myaccount' %}">Favorites({{ count_favorite }})</a>
+			</div>
+			<ul class="box2">
+				{% if 'nickname' not in request.session or 'id' not in request.session %}
+					<li><a href="{% url 'register' %}">Register</a></li>
+					<li><a href="{% url 'login' %}" class="a1">Login</a>
+				{% else %}
+					<li><a href="{% url 'myaccount' %}">{{ request.session.nickname }}</a></li>
+					<li><a href="{% url 'logout' %}" class="a1">Log out</a>
+				{% endif %}
+					<div>
+
+                    </div>
+				</li>
+			</ul>
+			<!-- </div> -->
+		</div>
+	</div>
+	<!-- 黑色导航end -->
+
+    <!-- 白色导航 start -->
+    <div class="white-nav">
+        <div class="wrap">
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="{% url 'index' %}"><img src="/static/img/M.png" alt=""></a></li>
+                    <li><a href="{% url 'index' %}">HOMEPAGE</a></li>
+                    <li><a href="{% url 'myaccount' %}">RECIPES</a></li>
+                    <li><a href="{% url 'myaccount' %}">INGREDIENTS</a></li>
+                    <li><a href="{% url 'contact_us' %}">CONTACT US</a></li>
+                </ul>
+            </div>
+            <form action="{% url 'search' %}" method="get" class="search">
+                <input type="text" name="search" placeholder="Beijing Duck" value="{{ search }}">
+                <button type="submit" class="iconfont">&#xe63d;</button>
+            </form>
+        </div>
+    </div>
+    <!-- 白色导航 end -->
+
+    <!-- 搜索结果 start -->
+    <div id="search-results">
+        {% for search in search_all %}
+            <div class="clearfix clearfix1">
+                <a href="{% url 'recipe' %}?recipe_id={{ search.id }}" class="fl"><img class="aaaa" style="width: 300px" src="/media/{{ search.r_imagefield }}"/></a>
+                <p class="fl"><span>{{ search.title }} <br> <strong>{{ search.user_id.nickname }}</strong></span>
+                </p>
+            </div>
+        {% empty %}
+            <p>No results found.</p>
+        {% endfor %}
+    </div>
+    <!-- 搜索结果 end -->
+
+</body>
+</html>

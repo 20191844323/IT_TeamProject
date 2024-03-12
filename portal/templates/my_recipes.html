@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flavor</title>
+    <!-- 引入网页图表 link rel="icon" href="./images/favicon.ico"-->
+    <link rel="stylesheet" href="../static/css/public.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="../static/plugins/iconfont/iconfont.css">
+
+    <link rel="stylesheet" href="../static/css/my_recipes.css">
+</head>
+<body>
+    <!-- 黑色导航start -->
+    <div class="nav">
+		<div class="w">
+			<ul class="box1">
+				<li><a href="javascript:;">HomePage</a></li>
+				<li><a href="#">Label2</a></li>
+				<li><a href="#">Label3</a></li>
+				<li><a href="#">Contact Us</a></li>
+
+			</ul>
+			<!-- <div id="123"> -->
+			<div class="b1">
+				<a href="javascript:;">Welcome{{user.neckname}}</a>
+			</div>
+			<ul class="box2">
+				<li><a href="#">Messages</a></li>
+				<li><a class="a1">Log out</a>
+					<div>
+					</div>
+					<p class="yinchan" style="background-color: #333;width: 80px;position: absolute;">
+						<a href="#" class="a2">个人空间</a>
+						<a href="#" class="a2">退出登录</a>
+						<!-- 利用button加window.open也可以实现跟a一样的效果 -->
+					</p>
+				</li>
+			</ul>
+			<!-- </div> -->
+		</div>
+	</div>
+	<!-- 黑色导航end -->
+
+
+    <!-- 白色导航 start -->
+    <div class="white-nav">
+        <div class="wrap">
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="#"><img src="../static/img/M.png" alt=""></a></li>
+                    <li><a href="/index/">HOMEPAGE</a></li>
+                    <li><a href="#">RECIPES</a></li>
+                    <li><a href="#">INGREDIENTS</a></li>
+                    <li><a href="/contact_us/">CONTACT US</a></li>
+
+                </ul>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Beijing Duck">
+                <button class="iconfont">&#xe63d;</button>
+            </div>
+        </div>
+    </div>
+    <!-- 白色导航 end -->
+
+    <!-- Content Start -->
+    <div class="Bott">
+		<div class="wrapper clearfix">
+			<div class="zuo fl">
+				<h3>
+					<a href="#"><img src="../static/img/R.gif" width="120px" height="120px"></a>
+					<p class="clearfix"><span class="fl">{{user.neckname}}</span>
+				</h3>
+				<div>
+                    <h4>My Account</h4>
+					<ul>
+						<li><a href="user_center.html">Index</a></li>
+                        <li><a href="information.html">Information</a></li>
+					</ul>
+					<h4>What I posted</h4>
+					<ul>
+						<li class="on"><a href="/my_recipes/">Recipes</a></li>
+						<li><a href="/my_comments/">Comments</a></li>
+					</ul>
+					<h4>What I Liked</h4>
+					<ul>
+						<li><a href="#">Recipes</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="you fl">
+				<div class="my clearfix">
+					<h2 class="fl">My Recipes</h2>
+				</div>
+				<div class="dlist clearfix">
+					<ul class="fl clearfix" id="wa">
+						<li class="on"><a href="#">All </a></li>
+						<li><a href="#2">Delete</a></li>
+
+					</ul>
+				</div>
+
+				<div class="dkuang deng">
+					<p class="one">PUBLISHED</p>
+					<div class="word clearfix">
+						<ul class="fl clearfix">
+							<li>TIME</li>
+							<li>{{ user.nickname }}</li>
+						</ul>
+					</div>
+					<div class="shohou clearfix">
+						<a href="#" class="fl"><img src="img/g1.jpg"/></a>
+						<p class="fl"><a href="#">{{ recipes.title }}</a><a href="#">{{ recipes.category }}</a></p>
+						<p class="fr">
+                        <a href="#">VIEW</a>
+						<a href="#">DELETE</a>
+						</p>
+					</div>
+				</div>
+
+				<div class="dkuang deng">
+					<p class="one">DELETE</p>
+					<div class="word clearfix">
+						<ul class="fl clearfix">
+							<li>TIME</li>
+							<li>{{ user.nickname }}</li>
+						</ul>
+					</div>
+					<div class="shohou clearfix">
+						<a href="#" class="fl"><img src="img/g1.jpg"/></a>
+						<p class="fl"><a href="#">{{ recipes.title }}</a><a href="#">{{ recipes.category }}</a></p>
+						<p class="fr">
+                        <a href="#">VIEW</a>
+						<a href="#">DELETE</a>
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

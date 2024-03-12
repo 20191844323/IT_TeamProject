@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>publish_recipes</title>
+</head>
+<!-- 引入网页图表 link rel="icon" href="./images/favicon.ico"-->
+<link rel="stylesheet" href="/static/css/public.css">
+<!-- 引入字体图标 -->
+<!-- <link rel="stylesheet" href="../static/css/user_center.css"> -->
+<!-- <link rel="stylesheet" href="../static/css/styles.css"> -->
+    <!-- <link rel="stylesheet" href="../static/css/login.css"> -->
+    <!-- <link rel="stylesheet" href="../static/css/styles.css"> -->
+    <!-- <link rel="stylesheet" href="../static/css/login.css"> -->
+<link rel="stylesheet" href="/static/plugins/iconfont/iconfont.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<!--<link rel="stylesheet" href="/static/css/publish_recipes.css">-->
+<style>
+.wrap {
+    width: 1226px;
+    margin: 0 auto;
+}
+
+
+/* 黑色导航 start */
+.nav {
+    height: 40px;
+    background-color: #333;
+}
+
+.w {
+    /* overflow: hidden; */
+    width: 1180px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+}
+
+.box1 {
+    float: left;
+}
+
+.w .box1 li {
+    position: relative;
+    padding: 0 8px;
+    float: left;
+}
+
+.box1 li:nth-child(11) .div1 {
+    display: none;
+    position: absolute;
+    top: 42px;
+    left: -37px;
+    padding: 20px 20px 10px;
+    background-color: white;
+    z-index: 20;
+    color: #757575;
+    box-shadow: 0px 2px 6px 0px;
+}
+
+.box1 li:nth-child(11) .div1::before {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: 58px;
+    border-color: transparent;
+    border-width: 10px;
+    border-style: solid;
+    border-bottom-color: white;
+}
+
+.w .box1 li:nth-child(-n+12)::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 14px;
+    right: 0;
+    width: 1px;
+    height: 11px;
+    border-right: 1px solid #424242;
+}
+
+.w .box1 li:first-child {
+    padding-left: 0;
+}
+
+.w .box1 li a {
+    line-height: 40px;
+    text-decoration: none;
+    color: #b0b0b0;
+    font-size: 13px;
+}
+
+.yinchan {
+    display: none;
+}
+
+.box2 {
+    position: absolute;
+    right: 243px;
+    height: 40px;
+    width: 300px;
+}
+
+.box2 li:last-child div {
+    display: none;
+    position: absolute;
+    top: 13.5px;
+    right: 11px;
+    width: 6px;
+    height: 6px;
+    transform: rotate(135deg);
+    border-top: 3px solid #b0b0b0;
+    border-right: 3px solid #b0b0b0;
+}
+
+.box2 li:last-child:hover div {
+    transform: rotate(-45deg);
+    top: 16.5px;
+}
+
+.w .box2 li {
+    position: absolute;
+    padding: 0 8px;
+    text-align: center;
+    background-color: #333;
+}
+
+.w .box2 li:first-child {
+    right: 8px;
+}
+
+.w .box1 li a:hover,
+.nav .w .box2 li a:hover {
+    color: #eee;
+}
+
+.w .box2 li:nth-child(n+2)::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 14px;
+    right: 0;
+    width: 1px;
+    height: 11px;
+    border-right: 1px solid #424242;
+}
+
+.w .box2 li a {
+    line-height: 40px;
+    text-decoration: none;
+    display: block;
+    color: #b0b0b0;
+    width: 69px;
+    font-size: 12px;
+}
+
+.w .box2 li:last-child {
+    top: 0;
+    right: 80px;
+    height: 40px;
+    z-index: 2;
+}
+
+.b1 {
+    position: absolute;
+    right: 147px;
+    height: 40px;
+    padding: 0 10px;
+    background-color: rgb(66, 66, 66);
+}
+
+.b1:hover {
+    background-color: #EEEEEE;
+}
+
+.b1:hover::before,
+.b1:hover a {
+    color: #FF6767;
+}
+
+.b1::before {
+    content: "\e93a";
+    font-family: 'icomoon';
+    color: #b0b0b0;
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+.b1 a {
+    line-height: 40px;
+    text-decoration: none;
+    color: #b0b0b0;
+    font-size: 12px;
+}
+
+/* 黑色导航 end */
+
+
+/* 白色导航 start */
+
+.white-nav {
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+}
+.row{
+    height: 100px;
+}
+
+.logo {
+    width: 55px;
+    height: 55px;
+    background-color: #ef4500;
+    float: left;
+    margin-top: 15px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.logo > img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.2s;
+}
+
+.mi-home {
+    left: -55px;
+}
+
+.mi-logo {
+    left: 0;
+}
+
+.logo:hover > .mi-home {
+    left: 0px;
+}
+
+.logo:hover > .mi-logo {
+    left: 55px;
+}
+
+.nav-bar {
+    width: 875px;
+    /*height: 100px;*/
+    line-height: 100px;
+    /*float: left;*/
+
+}
+
+.search {
+    width: 296px;
+    height: 100px;
+    float: right;
+}
+
+.nav-bar li {
+    float: left;
+}
+
+.nav-bar li a {
+    color: #333;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+.nav-bar li a:hover {
+    color: #ef4500;
+}
+
+.nav-bar ul li img {
+    margin-top: 22.5px;
+}
+
+.search input {
+    /* 296 - 244 = 52 */
+    width: 244px;
+    height: 50px;
+    float: left;
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    margin-top: 25px;
+    padding: 0 10px;
+    outline: none;
+    border-right: 0;
+}
+
+.search button {
+    width: 52px;
+    height: 50px;
+    float: right;
+    border: 1px solid #e0e0e0;
+    background-color: #ef4500;
+    margin-top: 25px;
+}
+
+.search button:hover {
+    background: #ef4500;
+    color: #fff;
+}
+
+/* 白色导航 end */
+
+/* Content Start */
+/*bott*/
+.Bott {
+    background: #f5f5f5;
+}
+
+.Bott .zuo {
+    margin: 20px 20px 20px 0;
+    width: 180px;
+    background: #fff;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid #e4e4e4;
+}
+
+.Bott .zuo h3 {
+    border-bottom: 1px solid #ef4500;
+    cursor: pointer;
+    padding: 10px 0;
+    font-weight: normal;
+}
+
+.Bott .zuo h3 a img {
+    display: block;
+    margin: 0 auto;
+}
+
+.Bott .zuo h3 p {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.Bott .zuo h3 p span {
+    border-bottom: 1px solid #fff;
+}
+
+.Bott .zuo h3 span:hover {
+    color: #ef4500;
+    border-bottom: 1px solid #ef4500;
+}
+
+.Bott .zuo div {
+    background: #fcfcff;
+}
+
+.Bott .zuo h4 {
+    cursor: pointer;
+    width: 90%;
+    color: #444;
+    font-size: 14px;
+}
+
+.Bott .zuo ul li a {
+    display: inline-block;
+    color: #757575;
+    width: 40%;
+    text-align: left;
+    font-size: 14px;
+}
+
+.Bott .zuo ul li.on a, .Bott .zuo ul li a:hover {
+    color: #757575;
+}
+
+
+.Bott .you {
+    background: #fff;
+    width: 840px;
+    padding: 50px;
+    margin: 20px 0;
+    border: 1px solid #e4e4e4;
+}
+
+.Bott .you h2 {
+    font-size: 22px;
+    font-weight: normal;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E6E6E6;
+    margin-bottom: 30px;
+}
+
+/*个人信息*/
+.Bott .you .tx {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.Bott .you .tx div a.fl {
+    display: block;
+    width: 90px;
+    height: 90px;
+    border-radius: 45px;
+    border: 1px solid #e3e3e3;
+    padding: 1px;
+}
+
+.Bott .you .tx div p {
+    margin: 25px 0 0 15px;
+}
+
+.Bott .you .tx div p span {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.Bott .you .tx div p a {
+    display: block;
+    color: #ef4500;
+}
+
+.Bott .you .tx div.fr {
+    margin: 40px 0 0 0;
+    color: #757575;
+}
+
+.Bott .you .bott {
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Bott .you .bott div {
+    flex: 1 1 50%;
+    margin: 20px 0;
+}
+
+.Bott .you .bott div p {
+    font-size: 15px;
+    color: #757575;
+    margin: 35px 0 0 15px;
+}
+
+.Bott .you .bott div p strong {
+    color: #ef4500;
+}
+
+.Bott .you .bott div a {
+    display: block;
+    font-size: 12px;
+    color: #757575;
+    margin-top: 10px;
+}
+
+/* Content End */
+
+.account {
+    background-color: #f0f0f0;
+    width: 400px;
+    border: 1px solid #FF59167F;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px #FF59167F;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+
+    padding: 20px 40px;
+    position: sticky;
+}
+
+.account .title {
+    text-align: center;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.jumbotron .subtitle {
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 2px;
+
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.jumbotron {
+    height: 100vh;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: 0.3rem;
+
+}
+
+@media (min-width: 576px) {
+    .jumbotron {
+        padding: 4rem 2rem;
+    }
+}
+
+.jumbotron-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    border-radius: 0;
+}
+
+.overlay {
+    position: relative;
+}
+
+.overlay .container {
+    position: relative;
+}
+
+.overlay:before {
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.overlay-red:before {
+    background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+}
+
+.btn-round {
+    border-radius: 30px !important;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.35rem 1.2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+    .btn {
+        transition: none;
+    }
+}
+
+.btn:hover, .btn:focus {
+    text-decoration: none;
+}
+
+.btn:focus, .btn.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(250, 167, 113, 0.25);
+}
+
+.btn.disabled, .btn:disabled {
+    opacity: 0.65;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+a.btn.disabled,
+fieldset:disabled a.btn {
+    pointer-events: none;
+}
+
+.btn-custom {
+    color: #1f1f1f;
+    background-color: #eae9e9;
+    border-color: #888888;
+}
+
+.btn-custom:hover {
+    color: #fff;
+    background-color: #888888;
+    border-color: #525252;
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #ff5916;
+    border-color: #ff5916;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #ef4500;
+    border-color: #e24100;
+}
+
+.btn-danger:focus, .btn-danger.focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 89, 22, 0.5);
+}
+
+.btn-danger.disabled, .btn-danger:disabled {
+    color: #fff;
+    background-color: #ff5916;
+    border-color: #ff5916;
+}
+
+.btn-danger:not(:disabled):not(.disabled):active, .btn-danger:not(:disabled):not(.disabled).active,
+.show > .btn-danger.dropdown-toggle {
+    color: #fff;
+    background-color: #e24100;
+    border-color: #d53d00;
+}
+
+.btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus,
+.show > .btn-danger.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 89, 22, 0.5);
+}
+
+.mb-1,
+.my-1 {
+    margin-bottom: 0.25rem !important;
+}
+
+.btn-lg, .btn-group-lg > .btn {
+    padding: 0.65rem 2rem;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(3rem + 2px);
+    padding: 0.35rem 1.2rem;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+    .form-control {
+        transition: none;
+    }
+}
+
+.form-control::-ms-expand {
+    background-color: transparent;
+    border: 0;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #fbb400;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(250, 167, 113, 0.25);
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.form-control::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.form-control::-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.form-control::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: #e9ecef;
+    opacity: 1;
+}
+
+select.form-control:focus::-ms-value {
+    color: #495057;
+    background-color: #fff;
+}
+
+a {
+    color: #e24100;
+}
+
+
+a:hover {
+    text-decoration: none;
+    color: #af3202;
+}
+
+
+</style>
+<body>
+<!-- 黑色导航start -->
+<div class="nav">
+    <div class="w">
+        <ul class="box1">
+            <li><a href="{% url 'index' %}">HomePage</a></li>
+            <li><a href="{% url 'myaccount' %}">Recipes</a></li>
+            <li><a href="{% url 'myaccount' %}">Ingredients</a></li>
+            <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+        </ul>
+        <!-- <div id="123"> -->
+        <div class="b1">
+            <a href="javascript:;">Welcome</a>
+        </div>
+        <ul class="box2">
+            {% if 'nickname' not in request.session or 'id' not in request.session %}
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}" class="a1">Login</a>
+            {% else %}
+                <li><a href="{% url 'myaccount' %}">{{ request.session.nickname }}</a></li>
+                <li><a href="{% url 'logout' %}" class="a1">Log out</a>
+            {% endif %}
+                <div>
+                </div>
+            </li>
+        </ul>
+        <!-- </div> -->
+    </div>
+</div>
+<!-- 黑色导航end -->
+
+<!-- 白色导航 start -->
+<div class="white-nav">
+    <div class="wrap">
+        <div class="nav-bar">
+            <ul>
+                <li><a href="{% url 'index' %}"><img src="/static/img/M.png" alt=""></a></li>
+                <li><a href="{% url 'index' %}">HOMEPAGE</a></li>
+                <li><a href="{% url 'myaccount' %}">RECIPES</a></li>
+                <li><a href="{% url 'myaccount' %}">INGREDIENTS</a></li>
+                <li><a href="{% url 'contact_us' %}">CONTACT US</a></li>
+            </ul>
+        </div>
+        <form action="{% url 'search' %}" method="get" class="search">
+            <input type="text" name="search" placeholder="Beijing Duck">
+            <button type="submit" class="iconfont">&#xe63d;</button>
+        </form>
+    </div>
+</div>
+<!-- 白色导航 end -->
+
+<!-- Content Start -->
+<div class="Bott">
+    <div class="wrapper clearfix">
+        <div class="zuo fl">
+            <h3>
+                <a href="#"><img src="/media/{{ user_xx.icon }}" width="120px" height="120px"></a>
+                <p class="clearfix"><span class="fl">{{user_xx.neckname}}</span></p>
+            </h3>
+            <div>
+                <h4>My Account</h4>
+                <ul>
+                    <li class="on"><a href="{% url 'myaccount' %}">Index</a></li>
+                    <li><a href="{% url 'myaccount' %}">Information</a></li>
+                </ul>
+                <h4>What I posted</h4>
+                <ul>
+                    <li><a href="{% url 'myaccount' %}">Recipes</a></li>
+                    <li><a href="{% url 'myaccount' %}">Comments</a></li>
+                </ul>
+                <h4>What I Liked</h4>
+                <ul>
+                    <li><a href="{% url 'myaccount' %}">Recipes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="you fl">
+            <div class="bs-example" data-example-id="basic-forms">
+                <form name="form1" action="{% url 'publishrecipes' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <h5 style="font-weight: bold">Recipe Title</h5>
+                        <input type="text" name="title" class="form-control" placeholder="Enter Recipe Title">
+                    </div>
+                    <div class="form-group">
+                        <h5 style="font-weight: bold">Recipe Content</h5>
+<!--                        <form>-->
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <textarea class="form-control" name="content" rows="5" placeholder="Enter Recipe Content"></textarea>
+                            </div>
+<!--                        </form>-->
+                    </div>
+
+                    <div>
+                        <h5 style="font-weight: bold">Update Recipe Image</h5>
+<!--                        <form name="form1">-->
+                            <button type="button" class="btn btn-custom" style="font-size: small"
+                                    onclick="document.form1.picpath.click()">
+                                Browse...
+                            </button>
+                            <input name="path" value="No file chosen" readonly>
+<!--                            <input name="data" >-->
+                            <input type="file" name="picpath" id="picpath" style="display:none;"
+                                    onChange="handleFileSelect">
+<!--                        </form>-->
+                    </div>
+<!--                        <form method="post" action="{% url 'publishrecipes' %}" enctype="multipart/form-data">-->
+                                <div style="margin-top: 20px">
+                                <button type="submit" class="btn btn-success" style="font-size: small">Save as Draft</button>
+                                <button type="submit" class="btn btn-danger" style="margin-left: 10px; font-size: small">Submit</button>
+                            </div>
+<!--                        </form>-->
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+<!-- 显示选择的文件名 -->
+<script>
+    function updateFileLabel(inputElement) {
+        var fileName = inputElement.value.split('\\').pop();
+        if (fileName) {
+            inputElement.nextElementSibling.value = fileName;
+        } else {
+            inputElement.nextElementSibling.value = 'No file chosen';
+        }
+    }
+    function handleFileSelect(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        // document.form1.path.value=this.value
+        reader.onload = function(e) {
+            var imageData = e.target.result;
+            // 在这里可以对 imageData 进行处理或传输给后端
+            console.log(imageData)
+            // 将文件的数据流赋值给 input 元素的 value 属性
+            document.form1.path.value=imageData
+            // event.target.value = imageData;
+            // console.log(event.target.value)
+        };
+
+        reader.readAsDataURL(file);
+    }
+    var fileInput = document.getElementById('picpath');
+    fileInput.addEventListener('change', handleFileSelect, false);
+</script>
+
+</body>
+</html>
