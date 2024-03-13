@@ -16,29 +16,33 @@
 	</style>
 </head>
 <body>
-    <!-- 黑色导航start -->
+<!-- 黑色导航start -->
     <div class="nav">
 		<div class="w">
 			<ul class="box1">
 				<li><a href="{% url 'index' %}">HomePage</a></li>
-				<li><a href="javascript:;">Recipes</a></li>
-				<li><a href="javascript:;">Ingredients</a></li>
+				<li><a href="{% url 'myaccount' %}">Recipes</a></li>
+				<li><a href="{% url 'ingredients' %}">Ingredients</a></li>
 				<li><a href="{% url 'contact_us' %}">Contact Us</a></li>
 			</ul>
-			<!-- <div id="123"> -->
 			<div class="b1">
-				<a href="javascript:;">Welcome</a>
+				<a href="{% url 'likedrecipes' %}">Favorites({{ count_favorite }})</a>
 			</div>
 			<ul class="box2">
 				{% if 'nickname' not in request.session or 'id' not in request.session %}
 					<li><a href="{% url 'register' %}">Register</a></li>
 					<li><a href="{% url 'login' %}" class="a1">Login</a>
 				{% else %}
-					<li><a href="javascript:;">{{ request.session.nickname }}</a></li>
+					<li><a href="{% url 'myaccount' %}">{{ request.session.nickname }}</a></li>
 					<li><a href="{% url 'logout' %}" class="a1">Log out</a>
 				{% endif %}
 					<div>
-					</div>
+
+                    </div>
+					<p class="yinchan" style="background-color: #333;width: 80px;position: absolute;">
+						<a href="{% url 'myaccount' %}" class="a2">My Account</a>
+						<a href="{% url 'logout' %}" class="a2">Log out</a>
+					</p>
 				</li>
 			</ul>
 			<!-- </div> -->
@@ -54,8 +58,8 @@
                 <ul>
                     <li><a href="{% url 'index' %}"><img src="/static/img/M1.png" alt=""></a></li>
                     <li><a href="{% url 'index' %}">HOMEPAGE</a></li>
-                    <li><a href="javascript:;">RECIPES</a></li>
-                    <li><a href="javascript:;">INGREDIENTS</a></li>
+                    <li><a href="{% url 'index' %}">RECIPES</a></li>
+                    <li><a href="{% url 'ingredients' %}">INGREDIENTS</a></li>
                     <li><a href="{% url 'contact_us' %}">CONTACT US</a></li>
                 </ul>
             </div>
@@ -77,12 +81,12 @@
 				<div>
                     <h4>My Account</h4>
 					<ul>
-						<li ><a href="javascript:;">Index</a></li>
+						<li ><a href="{% url 'myaccount' %}">Index</a></li>
                         <li><a href="{% url 'information' %}">Information</a></li>
 					</ul>
 					<h4>What I posted</h4>
 					<ul>
-						<li><a href="javascript:;">Recipes</a></li>
+						<li><a href="{% url 'myrecipes' %}">Recipes</a></li>
 						<li><a href="#">Comments</a></li>
 					</ul>
 					<h4>What I Liked</h4>

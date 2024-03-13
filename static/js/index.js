@@ -200,6 +200,7 @@ $(function() {
 		$(".box7").click();
 	},3000)
 	// 轮播图结束
+
 	if($(document).scrollTop()>=100){
 		$(".box13 li:last").stop().fadeIn()
 	}

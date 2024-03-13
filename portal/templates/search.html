@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>User Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
     <!-- 引入网页图表 link rel="icon" href="./images/favicon.ico"-->
-    <link rel="stylesheet" href="/static/css/public.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
     <!-- 引入字体图标 -->
     <link rel="stylesheet" href="/static/plugins/iconfont/iconfont.css">
-    <link rel="stylesheet" href="/static/css/user_center.css">
-	<style>
-		.clearfix1{
-			display: flex;
-			flex-direction: column;
-		}
-	</style>
+
+    <link rel="stylesheet" href="/static/css/index.css">
+<link rel="stylesheet" href="/static/css/user_center.css">
+<style>
+    .clearfix1{
+        margin: 20px 0;
+        margin-left: 200px;
+    }
+    .clearfix1 img{
+        width: 200px!important;
+    }
+</style>
 </head>
 <body>
 <!-- 黑色导航start -->
@@ -50,15 +56,14 @@
 	</div>
 	<!-- 黑色导航end -->
 
-
     <!-- 白色导航 start -->
     <div class="white-nav">
         <div class="wrap">
             <div class="nav-bar">
                 <ul>
-                    <li><a href="{% url 'index' %}"><img src="/static/img/M1.png" alt=""></a></li>
+                    <li><a href="{% url 'index' %}"><img src="/img/M1.png" alt=""></a></li>
                     <li><a href="{% url 'index' %}">HOMEPAGE</a></li>
-                    <li><a href="{% url 'index' %}">RECIPES</a></li>
+                    <li><a href="{% url 'myaccount' %}">RECIPES</a></li>
                     <li><a href="{% url 'ingredients' %}">INGREDIENTS</a></li>
                     <li><a href="{% url 'contact_us' %}">CONTACT US</a></li>
                 </ul>
@@ -71,48 +76,19 @@
     </div>
     <!-- 白色导航 end -->
 
-    <!-- Content Start -->
-    <div class="Bott">
-		<div class="wrapper clearfix">
-			<div class="zuo fl">
-				<h3>
-					<a href="#"><img src="/media/{{ user_xx.icon }}" width="120px" height="120px"></a>
-				</h3>
-				<div>
-                    <h4>My Account</h4>
-					<ul>
-						<li ><a href="{%  url 'myaccount' %}">Index</a></li>
-                        <li><a href="{% url 'information' %}">Information</a></li>
-					</ul>
-					<h4>What I posted</h4>
-					<ul>
-						<li class="on"><a href="{% url 'myrecipes' %}">Recipes</a></li>
-						<li><a href="#">Comments</a></li>
-					</ul>
-					<h4>What I Liked</h4>
-					<ul>
-						<li><a href="{% url 'likedrecipes' %}">Recipes</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="you fl">
-				<div class="tx clearfix">
-					<div class="fl clearfix">
-						<p class="fl"><span style="font-size:20px"> {{ user_xx.nickname }}</span><a href="{% url 'publishrecipes' %}">Edit<</a></p>
-					</div>
-					<div class="fr">Email：{{ user_xx.email }}</div>
-				</div>
-				<div class="bott reimg">
-					{% for recipe in recipes %}
-						<div class="clearfix clearfix1">
-							<a href="{% url 'recipe' %}?recipe_id={{ recipe.id }}" class="fl"><img class="aaaa" style="width: 300px" src="/media/{{ recipe.r_imagefield }}"/></a>
-							<p class="fl"><span>{{ recipe.title }} <br> <strong>{{ recipe.avg_rating }}</strong></span>
-							</p>
-						</div>
-					{% endfor %}
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- 搜索结果 start -->
+    <div id="search-results">
+        {% for search in search_all %}
+            <div class="clearfix clearfix1">
+                <a href="{% url 'recipe' %}?recipe_id={{ search.id }}" class="fl"><img class="aaaa" style="width: 300px" src="/media/{{ search.r_imagefield }}"/></a>
+                <p class="fl"><span>{{ search.title }} <br> <strong>{{ search.user_id.nickname }}</strong></span>
+                </p>
+            </div>
+        {% empty %}
+            <p>No results found.</p>
+        {% endfor %}
+    </div>
+    <!-- 搜索结果 end -->
+
 </body>
 </html>

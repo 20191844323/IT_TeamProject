@@ -21,7 +21,7 @@
 				<li><a href="{% url 'contact_us' %}">Contact Us</a></li>
 			</ul>
 			<div class="b1">
-				<a href="{% url 'myaccount' %}">Favorites({{ count_favorite }})</a>
+				<a href="{% url 'likedrecipes' %}">Favorites({{ count_favorite }})</a>
 			</div>
 			<ul class="box2">
 				{% if 'nickname' not in request.session or 'id' not in request.session %}

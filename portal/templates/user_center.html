@@ -54,7 +54,7 @@
                 <ul>
                     <li><a href="{% url 'index' %}"><img src="/static/img/M1.png" alt=""></a></li>
                     <li><a href="{% url 'index' %}">HOMEPAGE</a></li>
-                    <li><a href="javascript:;">RECIPES</a></li>
+                    <li><a href="{% url 'ingredients' %}">RECIPES</a></li>
                     <li><a href="{% url 'ingredients' %}">INGREDIENTS</a></li>
                     <li><a href="{% url 'contact_us' %}">CONTACT US</a></li>
                 </ul>
@@ -77,12 +77,12 @@
 				<div>
                     <h4>My Account</h4>
 					<ul>
-						<li class="on"><a href="javascript:;">Index</a></li>
+						<li class="on"><a href="{% url 'myaccount' %}">Index</a></li>
                         <li><a href="{% url 'information' %}">Information</a></li>
 					</ul>
 					<h4>What I posted</h4>
 					<ul>
-						<li><a href="javascript:;">Recipes</a></li>
+						<li><a href="{% url 'myrecipes' %}">Recipes</a></li>
 						<li><a href="#">Comments</a></li>
 					</ul>
 					<h4>What I Liked</h4>

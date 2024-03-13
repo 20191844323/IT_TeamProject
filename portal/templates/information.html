@@ -11,28 +11,32 @@
     <link rel="stylesheet" href="../static/css/information.css">
 </head>
 <body>
-    <!-- 黑色导航start -->
+<!-- 黑色导航start -->
     <div class="nav">
 		<div class="w">
 			<ul class="box1">
 				<li><a href="{% url 'index' %}">HomePage</a></li>
-				<li><a  href="{% url 'contact_us' %}">Label2</a></li>
-				<li><a  href="{% url 'contact_us' %}">Label3</a></li>
-				<li><a  href="{% url 'contact_us' %}">Contact Us</a></li>
-
+				<li><a href="{% url 'myaccount' %}">Recipes</a></li>
+				<li><a href="{% url 'ingredients' %}">Ingredients</a></li>
+				<li><a href="{% url 'contact_us' %}">Contact Us</a></li>
 			</ul>
-			<!-- <div id="123"> -->
 			<div class="b1">
-				<a href="javascript:;">Welcome{{user.neckname}}</a>
+				<a href="{% url 'likedrecipes' %}">Favorites({{ count_favorite }})</a>
 			</div>
 			<ul class="box2">
-				<li><a href="#">Messages</a></li>
-				<li><a class="a1">Log out</a>
+				{% if 'nickname' not in request.session or 'id' not in request.session %}
+					<li><a href="{% url 'register' %}">Register</a></li>
+					<li><a href="{% url 'login' %}" class="a1">Login</a>
+				{% else %}
+					<li><a href="{% url 'myaccount' %}">{{ request.session.nickname }}</a></li>
+					<li><a href="{% url 'logout' %}" class="a1">Log out</a>
+				{% endif %}
 					<div>
-					</div>
+
+                    </div>
 					<p class="yinchan" style="background-color: #333;width: 80px;position: absolute;">
-						<a href="#" class="a2">个人空间</a>
-						<a href="#" class="a2">退出登录</a>
+						<a href="{% url 'myaccount' %}" class="a2">My Account</a>
+						<a href="{% url 'logout' %}" class="a2">Log out</a>
 					</p>
 				</li>
 			</ul>
@@ -49,7 +53,7 @@
                     <li><a href="#"><img src="../static/img/M1.png" alt=""></a></li>
                     <li><a href="{% url 'index' %}">HOMEPAGE</a></li>
                     <li><a href="{% url 'contact_us' %}">RECIPES</a></li>
-                    <li><a href="{% url 'contact_us' %}">INGREDIENTS</a></li>
+                    <li><a href="{% url 'ingredients' %}">INGREDIENTS</a></li>
                     <li><a href="{% url 'contact_us' %}">CONTACT US</a></li>
 
                 </ul>

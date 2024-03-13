@@ -31,7 +31,7 @@
 	<div class="w">
 		<!-- <div id="123"> -->
 		<div class="b1">
-			<a href="{% url 'myaccount' %}">Favorites({{ favorites_sum }})</a>
+			<a href="{% url 'likedrecipes' %}">Favorites({{ favorites_sum }})</a>
 		</div>
 		<ul class="box2">
 			{% if 'nickname' not in request.session or 'id' not in request.session %}
@@ -58,7 +58,7 @@
 				<li><a href="{% url 'index' %}"><img src="/static/img/M1.png" alt=""></a></li>
 				<li><a href="{% url 'index' %}">HOMEPAGE</a></li>
 				<li><a href="{% url 'recipes' %}">RECIPES</a></li>
-				<li><a href="{% url 'myaccount' %}">INGREDIENTS</a></li>
+				<li><a href="{% url 'ingredients' %}">INGREDIENTS</a></li>
 				<li><a href="javascript:;">CONTACT US</a></li>
 
 			</ul>
