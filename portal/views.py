@@ -167,6 +167,45 @@ def MyAccount(request):
     dict_["recipes"] = recipes_with_avg_ratings
     return render(request, "user_center.html", dict_)
 
+# 我发布了哪些食谱
+class MyRecipesView(View):
+    def get(self, request, *args, **kwargs):
+        dict_ = {}
+        user_xx = User.objects.get(id=request.session.get('id'))
+        dict_["user_xx"] = user_xx
+        recipes_by_user = Recipe.objects.filter(user_id_id=request.session.get('id'))
+        recipes_with_avg_ratings = (recipes_by_user.annotate(avg_rating=Avg('comment__rating'))
+                                    .values('id', 'title', 'user_id_id', 'content', 'r_imagefield', 'avg_rating'))
+        dict_["recipes"] = recipes_with_avg_ratings
+        return render(request, "my_recipes.html", dict_)
+
+
+# 我喜欢哪些食谱
+class LikedRecipesView(View):
+    def get(self, request, *args, **kwargs):
+        dict_ = {}
+        user_xx = User.objects.get(id=request.session.get('id'))
+        dict_["user_xx"] = user_xx
+        recipes_by_user = Recipe.objects.filter(user_id_id=request.session.get('id'))
+        recipes_with_avg_ratings = (recipes_by_user.annotate(avg_rating=Avg('comment__rating'))
+                                    .values('id', 'title', 'user_id_id', 'content', 'r_imagefield', 'avg_rating'))
+        dict_["recipes"] = recipes_with_avg_ratings
+        return render(request, "liked_recipes.html", dict_)
+
+
+
+# 个人信息界面
+class InformationView(View):
+    def get(self, request, *args, **kwargs):
+        dict_ = {}
+        user_xx = User.objects.get(id=request.session.get('id'))
+        dict_["user_xx"] = user_xx
+        return render(request, 'information.html',dict_)
+
+class IngredientView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request,'ingredient.html')
+
 # 食谱
 class RecipesView(View):
     def get(self, request, *args, **kwargs):

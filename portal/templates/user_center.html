@@ -22,7 +22,7 @@
 			<ul class="box1">
 				<li><a href="{% url 'index' %}">HomePage</a></li>
 				<li><a href="javascript:;">Recipes</a></li>
-				<li><a href="javascript:;">Ingredients</a></li>
+				<li><a href="{% url 'ingredients' %}">Ingredients</a></li>
 				<li><a href="{% url 'contact_us' %}">Contact Us</a></li>
 			</ul>
 			<!-- <div id="123"> -->
@@ -55,7 +55,7 @@
                     <li><a href="{% url 'index' %}"><img src="/static/img/M1.png" alt=""></a></li>
                     <li><a href="{% url 'index' %}">HOMEPAGE</a></li>
                     <li><a href="javascript:;">RECIPES</a></li>
-                    <li><a href="javascript:;">INGREDIENTS</a></li>
+                    <li><a href="{% url 'ingredients' %}">INGREDIENTS</a></li>
                     <li><a href="{% url 'contact_us' %}">CONTACT US</a></li>
                 </ul>
             </div>
@@ -78,7 +78,7 @@
                     <h4>My Account</h4>
 					<ul>
 						<li class="on"><a href="javascript:;">Index</a></li>
-                        <li><a href="#">Information</a></li>
+                        <li><a href="{% url 'information' %}">Information</a></li>
 					</ul>
 					<h4>What I posted</h4>
 					<ul>
@@ -87,7 +87,7 @@
 					</ul>
 					<h4>What I Liked</h4>
 					<ul>
-						<li><a href="javascript:;">Recipes</a></li>
+						<li><a href="{% url 'likedrecipes' %}">Recipes</a></li>
 					</ul>
 				</div>
 			</div>

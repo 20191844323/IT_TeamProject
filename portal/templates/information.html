@@ -15,10 +15,10 @@
     <div class="nav">
 		<div class="w">
 			<ul class="box1">
-				<li><a href="javascript:;">HomePage</a></li>
-				<li><a href="#">Label2</a></li>
-				<li><a href="#">Label3</a></li>
-				<li><a href="#">Contact Us</a></li>
+				<li><a href="{% url 'index' %}">HomePage</a></li>
+				<li><a  href="{% url 'contact_us' %}">Label2</a></li>
+				<li><a  href="{% url 'contact_us' %}">Label3</a></li>
+				<li><a  href="{% url 'contact_us' %}">Contact Us</a></li>
 
 			</ul>
 			<!-- <div id="123"> -->
@@ -47,10 +47,10 @@
             <div class="nav-bar">
                 <ul>
                     <li><a href="#"><img src="../static/img/M1.png" alt=""></a></li>
-                    <li><a href="/index/">HOMEPAGE</a></li>
-                    <li><a href="#">RECIPES</a></li>
-                    <li><a href="#">INGREDIENTS</a></li>
-                    <li><a href="/contact_us/">CONTACT US</a></li>
+                    <li><a href="{% url 'index' %}">HOMEPAGE</a></li>
+                    <li><a href="{% url 'contact_us' %}">RECIPES</a></li>
+                    <li><a href="{% url 'contact_us' %}">INGREDIENTS</a></li>
+                    <li><a href="{% url 'contact_us' %}">CONTACT US</a></li>
 
                 </ul>
             </div>
@@ -67,35 +67,35 @@
 		<div class="wrapper clearfix">
 			<div class="zuo fl">
 				<h3>
-					<a href="#"><img src="../static/img/R.gif" width="120px" height="120px"></a>
-					<p class="clearfix"><span class="fl">{{user.neckname}}</span>
+					<a href="#"><img src="../media/{{ user_xx.icon }}" width="120px" height="120px"></a>
+					<p class="clearfix"><span class="fl">{{user_xx.nickname}}</span>
 				</h3>
 				<div>
                     <h4>My Account</h4>
 					<ul>
-						<li><a href="user_center.html">Index</a></li>
+						<li><a href="{% url 'myaccount' %}">Index</a></li>
                         <li class="on"><a href="information.html">Information</a></li>
 					</ul>
 					<h4>What I posted</h4>
 					<ul>
-						<li><a href="#">Recipes</a></li>
+						<li><a href="{% url 'myrecipes' %}">Recipes</a></li>
 						<li><a href="#">Comments</a></li>
 					</ul>
 					<h4>What I Liked</h4>
 					<ul>
-						<li><a href="#">Recipes</a></li>
+						<li><a href="{% url 'likedrecipes' %}">Recipes</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="you fl">
 				<h2>PERSONAL INFORMATIONS</h2>
 				<div class="gxin">
-					<div class="tx"><a href="#"><img src="img/tx.png"/><p id="avatar">Edit</p></a></div>
+					<div class="tx"><a href="#"><img src="../media/{{ user_xx.icon }}" width="100px" height="100px"><p id="avatar">Edit</p></a></div>
 					<div class="xx">
 						<h3 class="clearfix"><strong class="fl">Basic Settings</strong><a href="#" class="fr" id="edit1">Edit</a></h3>
-						<div>NICKNAME：{{ user.neckname }}</div>
-						<div>PASSWORD：{{ user.password }}</div>
-						<div>Email：{{ user.email }}</div>
+						<div>NICKNAME：{{ user_xx.nickname }}</div>
+						<div>PASSWORD：{{ user_xx.password }}</div>
+						<div>EMAIL：{{ user_xx.email }}</div>
 						<h3>Advanced Settings</h3>
 						<div><span class="fl">TODO</span><a href="#" class="fr" id="edit2">Edit</a></div>
 					</div>
@@ -105,6 +105,7 @@
 	</div>
 	<!--遮罩-->
 	<div class="mask"></div>
+    
 	<!--编辑弹框-->
 	<div class="bj">
 		<div class="clearfix"><a href="#" class="fr gb"><img src="img/icon4.png"/></a></div>
@@ -131,6 +132,7 @@
 			</div>
 		</form>
 	</div>
+    
 	<!--修改头像-->
 	<div class="avatar">
 		<div class="clearfix"><a href="#" class="fr gb"><img src="img/icon4.png"/></a></div>

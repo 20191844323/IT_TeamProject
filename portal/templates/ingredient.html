@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="/static/js/vue.min.js"></script>
+</head>
+<body>
+  <div id="app" class="food_content">
+    <h1>Ingredients</h1>
+    <div class="tab-bar">
+      <span :class="{ 'active': tabIndex === index }" v-for="(item, index) in tabList" :key="index" @click="handleChangeTabBar(index)">{{ item }}</span>
+    </div>
+    <div class="food_list">
+      <div class="food_item" v-for="(item, index) in foodList" :key="index">
+        <img :src="item.imgUrl" alt="">
+        <p class="name">{{ item.name }}</p>
+        <p class="desc">{{ item.desc }}</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data() {
+      return {
+        tabList: ['Featured', 'All'],
+        tabIndex: 0,
+        foodList: [
+          {
+            imgUrl: '../static/img/images/food1.png',
+            name: 'Arborio rice',
+            desc: 'INGREDIENT'
+          },
+          {
+            imgUrl: '../static/img/images/food2.png',
+            name: 'Baguette',
+            desc: 'INGREDIENT'
+          },
+          {
+            imgUrl: '../static/img/images/food3.png',
+            name: 'Dried fruit',
+            desc: 'INGREDIENT'
+          },
+          {
+            imgUrl: '../static/img/images/food4.png',
+            name: 'Flour tortilla',
+            desc: 'INGREDIENT'
+          },
+          {
+            imgUrl: '../static/img/images/food5.png',
+            name: 'Fresh tuna',
+            desc: 'INGREDIENT'
+          },
+          {
+            imgUrl: '../static/img/images/food6.png',
+            name: 'Oyster mushrooms',
+            desc: 'INGREDIENT'
+          },
+          {
+            imgUrl: '../static/img/images/food7.png',
+            name: 'Pumpkin',
+            desc: 'INGREDIENT'
+          },
+          {
+            imgUrl: '../static/img/images/food8.png',
+            name: 'Rocket',
+            desc: 'INGREDIENT'
+          },
+          {
+            imgUrl: '../static/img/images/food9.png',
+            name: 'Rump',
+            desc: 'INGREDIENT'
+          },
+          {
+            imgUrl: '../static/img/images/food10.png',
+            name: 'Serrano ham',
+            desc: 'INGREDIENT'
+          },
+          {
+            imgUrl: '../static/img/images/food11.png',
+            name: 'Vegetable stock',
+            desc: 'INGREDIENT'
+          },
+          {
+            imgUrl: '../static/img/images/food12.png',
+            name: 'Walnut',
+            desc: 'INGREDIENT'
+          },
+        ],
+      }
+    },
+    methods: {
+      handleChangeTabBar(index) {
+        this.tabIndex = index;
+      }
+    },
+  })
+</script>
+</html>

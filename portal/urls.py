@@ -34,5 +34,11 @@ urlpatterns = [
     path("publishrecipes/", PublishRecipes, name='publishrecipes'),
     path("contact_us/", ContactUsView.as_view(), name='contact_us'),
     path("search/", SearchView.as_view(), name='search'),
+    path("information/", InformationView.as_view(), name='information'),
+    path("myrecipes/",MyRecipesView.as_view(),name="myrecipes"),
+
+    path("ingredients/",IngredientView.as_view(),name="ingredients"),
+
+    path("likedrecipes/",LikedRecipesView.as_view(),name="likedrecipes"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
