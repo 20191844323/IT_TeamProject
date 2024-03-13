@@ -121,13 +121,7 @@
             background: url(../../media/field/star.png) no-repeat; /* Replace 'star.png' with your image URL */
         }
 
-        /*span li a {*/
-        /*    height: 20px;*/
-        /*    width: 10px;*/
-        /*    display: inline-block;*/
-        /*    float: left;*/
-        /*}*/
-
+     
         textarea {
             white-space: pre-wrap;
         }
@@ -135,40 +129,19 @@
 </head>
 <body>
 
-
-<!--&lt;!&ndash;        <div class="logo">网站 Logo</div>&ndash;&gt;-->
-<!--        <div class="search-bar">-->
-<!--            <input type="text" placeholder="搜索...">-->
-<!--            <button type="submit">Search</button>-->
-<!--        </div>-->
-<!--        <div class="login-register">-->
-<!--            <a href="./login.html">登录/注册</a>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="menu-bar">-->
-<!--        <div class="menu-item">首页</div>-->
-<!--        <div class="menu-item">菜谱</div>-->
-<!--        <div class="menu-item">Contact us</div>-->
-<!--    </div>-->
 <div class="nav"><!--导航栏-->
     <div class="w">
-        {#
-        <ul class="box1">#}
-            {#
+        <ul class="box1">
             <li><a href="{% url 'index' %}">HomePage</a></li>
-            #}
-            {#
+           
             <li><a href="{% url 'myaccount' %}">Recipes</a></li>
-            #}
-            {#
+           
             <li><a href="{% url 'ingredients' %}">Ingredients</a></li>
-            #}
-            {#
+            
             <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
-            #}
-            {#
+            
         </ul>
-        #}
+        
         <!-- <div id="123"> -->
         <div class="b1">
             <a href="{% url 'myaccount' %}">Favorites({{ count_favorite }})</a>
