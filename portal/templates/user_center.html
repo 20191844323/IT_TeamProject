@@ -94,18 +94,12 @@
 			<div class="you fl">
 				<div class="tx clearfix">
 					<div class="fl clearfix">
-						<p class="fl"><span style="font-size:20px"> {{ user_xx.nickname }}</span><a href="{% url 'publishrecipes' %}">Edit<</a></p>
+						<p class="fl"><span style="font-size:20px"> {{ user_xx.nickname }}</span></p>
 					</div>
 					<div class="fr">Email：{{ user_xx.email }}</div>
 				</div>
 				<div class="bott reimg">
-					{% for recipe in recipes %}
-						<div class="clearfix clearfix1">
-							<a href="{% url 'recipe' %}?recipe_id={{ recipe.id }}" class="fl"><img class="aaaa" style="width: 300px" src="/media/{{ recipe.r_imagefield }}"/></a>
-							<p class="fl"><span>{{ recipe.title }} <br> <strong>{{ recipe.avg_rating }}</strong></span>
-							</p>
-						</div>
-					{% endfor %}
+                    <li><img src="../static/img/images/flavor.png" width="850px" height="450px" ></li>
 				</div>
 			</div>
 		</div>
