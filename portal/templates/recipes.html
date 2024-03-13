@@ -175,18 +175,18 @@
         </div>
         <ul class="box2">
             {% if 'nickname' not in request.session or 'id' not in request.session %}
-            <li><a href="{% url 'register' %}">Register</a></li>
-            <li><a href="{% url 'login' %}" class="a1">Login</a>
-                {% else %}
-            <li><a href="{% url 'myaccount' %}">{{ request.session.nickname }}</a></li>
-            <li><a href="{% url 'logout' %}" class="a1">Log out</a>
-                {% endif %}
-                <div>
-                </div>
-                <p class="yinchan" style="background-color: #333;width: 80px;position: absolute;">
-                    <a href="{% url 'myaccount' %}" class="a2">My Account</a>
-                    <a href="{% url 'logout' %}" class="a2">Log out</a>
-                </p>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}" class="a1">Login</a>
+                    {% else %}
+                <li><a href="{% url 'myaccount' %}">{{ request.session.nickname }}</a></li>
+                <li><a href="{% url 'logout' %}" class="a1">Log out</a>
+            {% endif %}
+            <div>
+            </div>
+            <p class="yinchan" style="background-color: #333;width: 80px;position: absolute;">
+                <a href="{% url 'myaccount' %}" class="a2">My Account</a>
+                <a href="{% url 'logout' %}" class="a2">Log out</a>
+            </p>
             </li>
         </ul>
         <!-- </div> -->
@@ -273,52 +273,19 @@
             <h3>Content <br><span>Let's do it</span></h3>
             <p>{{ recipe.content }}</p>
         </div>
-       
-        <div class="bs-example" data-example-id="simple-table">
-            <table class="table">
-                <thead>
-                <tr class="h4">
-                    <th>Comments</th>
-                    <th>Username</th>
-                    <th>rating</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="col-xs-8">
-                        <ul style="margin-left: 15px">
-                            {% for comment in comments %}
-                            <li>{{ comment.comment }}</li>
-                            {% endfor %}
-                        </ul>
-                    </td>
-                    <td class="col-xs-2">
-                        <ul style="margin-left: 15px">
-                            {% for comment in comments %}
-                            <li>{{ comment.user_id.nickname }}</li>
-                            {% endfor %}
-                        </ul>
-                    </td>
-                    <td class="col-xs-2">
-                        <ul style="margin-left: 15px">
-                            {% for comment in comments %}
-                            <li>{{ comment.rating }}</li>
-                            {% endfor %}
-                        </ul>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div style="margin-left: 10px">
+    </div>
+    <div>
+        <div class="blog-recipe" style="margin-left: 10px; margin-top: 60px">
             <h4>Make A Comment</h4>
             <form method="post" action="{% url 'comment' %}">
                 {% csrf_token %}
                 <div class="form-group">
                     <input name="recipe_id" value="{{ recipe.id }}" hidden>
                     <input name="id" value="{{ request.session.id }}" hidden>
-                    <textarea class="form-control" rows="2" name="comment" placeholder="请输入评论："></textarea>
-                    <input type="number" placeholder="请输入评分(1,2,3,4,5)：" class="form-control rating-input"
+                    <textarea style="margin-top: 20px" class="form-control" rows="2" name="comment"
+                              placeholder="Please enter your comment："></textarea>
+                    <input style="margin-top: 20px" type="number" placeholder="Please enter your rating(1,2,3,4,5)："
+                           class="form-control rating-input"
                            name="rating" min="1" max="5" step="1">
                 </div>
                 <div style="text-align: center">
@@ -330,20 +297,56 @@
             </form>
         </div>
     </div>
+    <div class="blog-recipe" data-example-id="simple-table" style="margin-top: 20px">
+        <table class="table">
+            <thead>
+            <tr class="h4">
+                <th style="text-align: left">Comments</th>
+                <th>Username</th>
+                <th>rating</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr style="font-size: 15px; padding-bottom: 10px">
+                <td class="col-xs-8" style="text-align: left">
+                    <ul style="margin-left: 15px">
+                        {% for comment in comments %}
+                            <li>{{ comment.comment }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td class="col-xs-2">
+                    <ul style="margin-left: 15px">
+                        {% for comment in comments %}
+                            <li>{{ comment.user_id.nickname }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td class="col-xs-2">
+                    <ul style="margin-left: 15px">
+                        {% for comment in comments %}
+                            <li>{{ comment.rating }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
     <!-- 这里可以添加其他菜谱相关内容，如评论、点赞等 -->
     <!-- 展示三个推荐菜谱? 随机/评分/用户爱好-->
     {% for top in top_three %}
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            <img src="/media/{{ top.r_imagefield }}" alt="{{ top.title }}">
-            <div class="caption" style="text-align: center">
-                <h3>{{ top.title }}</h3>
-                <p>{{ top.avg_rating }}</p>
-                <a href="/recipe?recipe_id={{ top.id }}" class="btn btn-danger btn-round mb-1"
-                   style="background-color: #E23D1B;">View More</a>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="/media/{{ top.r_imagefield }}" alt="{{ top.title }}">
+                <div class="caption" style="text-align: center">
+                    <h3>{{ top.title }}</h3>
+                    <p>{{ top.avg_rating }}</p>
+                    <a href="/recipe?recipe_id={{ top.id }}" class="btn btn-danger btn-round mb-1"
+                       style="background-color: #E23D1B;">View More</a>
+                </div>
             </div>
         </div>
-    </div>
     {% endfor %}
 
 

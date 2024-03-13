@@ -43,12 +43,49 @@
 .single-recent-recipes .content-box .inner-meta .read-more a:hover {
   color: #64CB31;
 }
-.blog-recipe {
-
-  padding-bottom: 74px;
+.bs-example{
+  margin-top: 100px;
 }
+.bs-example th{
+  text-align: center;
+  font-family:"Times New Roman",Times,serif;
+  font-size:24px;
+
+}
+
+.bs-example td{
+  text-align: center;
+}
+
+.blog-recipe {
+  padding-bottom: 30px;
+}
+
+.blog-recipe h4{
+
+  font-family:"Times New Roman",Times,serif;
+  font-size:24px;
+}
+
+
 .blog-recipe .sec-title {
   width: 50%;
+}
+.blog-recipe .bs-example {
+  padding-left: 74px;
+  margin-top: 70px;
+  text-align: left;
+  margin-left: 50px;
+}
+.blog-recipe .bs-example h3 {
+  font-size: 35px;
+  text-transform: uppercase;
+  color: #373737;
+  line-height: 40px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  text-align: left;
+   margin-left: 50px;
 }
 .blog-recipe .promotion {
   padding-left: 74px;
