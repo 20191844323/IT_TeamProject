@@ -105,7 +105,9 @@ def Logout(request):
         resp.delete_cookie('id')
     return resp
 
-
+class AllRecipesView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "all_recipes.html")
 # 注册
 class RegisterView(View):
     def get(self, request, *args, **kwargs):

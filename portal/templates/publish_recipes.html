@@ -724,8 +724,8 @@ a:hover {
     <div class="w">
         <ul class="box1">
             <li><a href="{% url 'index' %}">HomePage</a></li>
-            <li><a href="{% url 'myaccount' %}">Recipes</a></li>
-            <li><a href="{% url 'myaccount' %}">Ingredients</a></li>
+            <li><a href="{% url 'allrecipes' %}">Recipes</a></li>
+            <li><a href="{% url 'ingredients' %}">Ingredients</a></li>
             <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
         </ul>
         <!-- <div id="123"> -->
@@ -756,8 +756,8 @@ a:hover {
             <ul>
                 <li><a href="{% url 'index' %}"><img src="/static/img/M1.png" alt=""></a></li>
                 <li><a href="{% url 'index' %}">HOMEPAGE</a></li>
-                <li><a href="{% url 'myaccount' %}">RECIPES</a></li>
-                <li><a href="{% url 'myaccount' %}">INGREDIENTS</a></li>
+                <li><a href="{% url 'allrecipes' %}">RECIPES</a></li>
+                <li><a href="{% url 'ingredients' %}">INGREDIENTS</a></li>
                 <li><a href="{% url 'contact_us' %}">CONTACT US</a></li>
             </ul>
         </div>
@@ -780,17 +780,17 @@ a:hover {
             <div>
                 <h4>My Account</h4>
                 <ul>
-                    <li class="on"><a href="{% url 'myaccount' %}">Index</a></li>
-                    <li><a href="{% url 'myaccount' %}">Information</a></li>
+                    <li><a href="{% url 'myaccount' %}">Index</a></li>
+                    <li><a href="{% url 'information' %}">Information</a></li>
                 </ul>
                 <h4>What I posted</h4>
                 <ul>
-                    <li><a href="{% url 'myaccount' %}">Recipes</a></li>
+                    <li class="on"><a href="{% url 'myrecipes' %}">Recipes</a></li>
                     <li><a href="{% url 'myaccount' %}">Comments</a></li>
                 </ul>
                 <h4>What I Liked</h4>
                 <ul>
-                    <li><a href="{% url 'myaccount' %}">Recipes</a></li>
+                    <li><a href="{% url 'likedrecipes' %}">Recipes</a></li>
                 </ul>
             </div>
         </div>
