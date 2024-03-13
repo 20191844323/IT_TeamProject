@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Center</title>
+    <!-- 引入网页图表 link rel="icon" href="./images/favicon.ico"-->
+    <link rel="stylesheet" href="/static/css/public.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="/static/plugins/iconfont/iconfont.css">
+    <link rel="stylesheet" href="/static/css/user_center.css">
+	<style>
+		.clearfix1{
+			display: flex;
+			flex-direction: column;
+		}
+	</style>
+</head>
+<body>
+    <!-- 黑色导航start -->
+    <div class="nav">
+		<div class="w">
+			<ul class="box1">
+				<li><a href="{% url 'index' %}">HomePage</a></li>
+				<li><a href="javascript:;">Recipes</a></li>
+				<li><a href="javascript:;">Ingredients</a></li>
+				<li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+			</ul>
+			<!-- <div id="123"> -->
+			<div class="b1">
+				<a href="javascript:;">Welcome</a>
+			</div>
+			<ul class="box2">
+				{% if 'nickname' not in request.session or 'id' not in request.session %}
+					<li><a href="{% url 'register' %}">Register</a></li>
+					<li><a href="{% url 'login' %}" class="a1">Login</a>
+				{% else %}
+					<li><a href="javascript:;">{{ request.session.nickname }}</a></li>
+					<li><a href="{% url 'logout' %}" class="a1">Log out</a>
+				{% endif %}
+					<div>
+					</div>
+				</li>
+			</ul>
+			<!-- </div> -->
+		</div>
+	</div>
+	<!-- 黑色导航end -->
+
+
+    <!-- 白色导航 start -->
+    <div class="white-nav">
+        <div class="wrap">
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="{% url 'index' %}"><img src="/static/img/M1.png" alt=""></a></li>
+                    <li><a href="{% url 'index' %}">HOMEPAGE</a></li>
+                    <li><a href="javascript:;">RECIPES</a></li>
+                    <li><a href="javascript:;">INGREDIENTS</a></li>
+                    <li><a href="{% url 'contact_us' %}">CONTACT US</a></li>
+                </ul>
+            </div>
+            <form action="{% url 'search' %}" method="get" class="search">
+                <input type="text" name="search" placeholder="Beijing Duck" value="{{ search }}">
+                <button type="submit" class="iconfont">&#xe63d;</button>
+            </form>
+        </div>
+    </div>
+    <!-- 白色导航 end -->
+
+    <!-- Content Start -->
+    <div class="Bott">
+		<div class="wrapper clearfix">
+			<div class="zuo fl">
+				<h3>
+					<a href="#"><img src="/media/{{ user_xx.icon }}" width="120px" height="120px"></a>
+				</h3>
+				<div>
+                    <h4>My Account</h4>
+					<ul>
+						<li ><a href="javascript:;">Index</a></li>
+                        <li><a href="{% url 'information' %}">Information</a></li>
+					</ul>
+					<h4>What I posted</h4>
+					<ul>
+						<li><a href="javascript:;">Recipes</a></li>
+						<li><a href="#">Comments</a></li>
+					</ul>
+					<h4>What I Liked</h4>
+					<ul>
+						<li class="on"><a href="{% url 'likedrecipes' %}">Recipes</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="you fl">
+				<div class="tx clearfix">
+					<div class="fl clearfix">
+						<p class="fl"><span style="font-size:20px"> {{ user_xx.nickname }}</span></p>
+					</div>
+					<div class="fr">Email：{{ user_xx.email }}</div>
+				</div>
+				<div class="bott reimg">
+	
+                    <div class="clearfix clearfix1">
+                        <a href="{% url 'recipe' %}?recipe_id={{ recipe.id }}" class="fl"><img class="aaaa" style="width: 300px" src="../media/field/chickentikkamasala.jpg"/></a>
+                        <p class="fl"><span>Chicken Masala <br> <strong>4.2</strong></span></p>
+                    </div>
+                    <div class="clearfix clearfix1">
+                        <a href="{% url 'recipe' %}?recipe_id={{ recipe.id }}" class="fl"><img class="aaaa" style="width: 300px" src="../media/field/crispy_duck.jpg"/></a>
+                        <p class="fl"><span>Peking Duck<br> <strong>5.0</strong></span></p>
+                    </div>
+                    
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
